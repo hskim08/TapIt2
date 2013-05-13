@@ -19,6 +19,18 @@
 		DA0C0964174177DA0023FC61 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA0C0962174177DA0023FC61 /* MainStoryboard_iPhone.storyboard */; };
 		DA0C0967174177DA0023FC61 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA0C0965174177DA0023FC61 /* MainStoryboard_iPad.storyboard */; };
 		DA0C096A174177DA0023FC61 /* TIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA0C0969174177DA0023FC61 /* TIViewController.m */; };
+		DACE18B31741A078004294B9 /* TIConsentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DACE18B21741A078004294B9 /* TIConsentViewController.m */; };
+		DACE18B61741A095004294B9 /* TITaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DACE18B51741A095004294B9 /* TITaskViewController.m */; };
+		DACE18B91741A0B1004294B9 /* TIEndTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DACE18B81741A0B1004294B9 /* TIEndTaskViewController.m */; };
+		DACE18BC1741A0C7004294B9 /* TISettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DACE18BB1741A0C7004294B9 /* TISettingsViewController.m */; };
+		DACE18BF1741A0DD004294B9 /* TITrackListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DACE18BE1741A0DD004294B9 /* TITrackListViewController.m */; };
+		DACE18D41741A8C3004294B9 /* FileRead.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DACE18C81741A892004294B9 /* FileRead.cpp */; };
+		DACE18D51741A8C3004294B9 /* FileWrite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DACE18CA1741A892004294B9 /* FileWrite.cpp */; };
+		DACE18D61741A8C3004294B9 /* FileWvIn.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DACE18CC1741A892004294B9 /* FileWvIn.cpp */; };
+		DACE18D71741A8C3004294B9 /* FileWvOut.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DACE18CE1741A892004294B9 /* FileWvOut.cpp */; };
+		DACE18D81741A8C3004294B9 /* Stk.mm in Sources */ = {isa = PBXBuildFile; fileRef = DACE18D11741A892004294B9 /* Stk.mm */; };
+		DACE18D91741A8C3004294B9 /* mo_audio.mm in Sources */ = {isa = PBXBuildFile; fileRef = DACE18C51741A86F004294B9 /* mo_audio.mm */; };
+		DACE18DB1741A8FD004294B9 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DACE18DA1741A8FD004294B9 /* AudioToolbox.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +51,32 @@
 		DA0C0966174177DA0023FC61 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
 		DA0C0968174177DA0023FC61 /* TIViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TIViewController.h; sourceTree = "<group>"; };
 		DA0C0969174177DA0023FC61 /* TIViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TIViewController.m; sourceTree = "<group>"; };
+		DACE18B11741A078004294B9 /* TIConsentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TIConsentViewController.h; sourceTree = "<group>"; };
+		DACE18B21741A078004294B9 /* TIConsentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TIConsentViewController.m; sourceTree = "<group>"; };
+		DACE18B41741A095004294B9 /* TITaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TITaskViewController.h; sourceTree = "<group>"; };
+		DACE18B51741A095004294B9 /* TITaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TITaskViewController.m; sourceTree = "<group>"; };
+		DACE18B71741A0B1004294B9 /* TIEndTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TIEndTaskViewController.h; sourceTree = "<group>"; };
+		DACE18B81741A0B1004294B9 /* TIEndTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TIEndTaskViewController.m; sourceTree = "<group>"; };
+		DACE18BA1741A0C7004294B9 /* TISettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TISettingsViewController.h; sourceTree = "<group>"; };
+		DACE18BB1741A0C7004294B9 /* TISettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TISettingsViewController.m; sourceTree = "<group>"; };
+		DACE18BD1741A0DD004294B9 /* TITrackListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TITrackListViewController.h; sourceTree = "<group>"; };
+		DACE18BE1741A0DD004294B9 /* TITrackListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TITrackListViewController.m; sourceTree = "<group>"; };
+		DACE18C41741A86F004294B9 /* mo_audio.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = mo_audio.h; path = Ext/MoMu/mo_audio.h; sourceTree = SOURCE_ROOT; };
+		DACE18C51741A86F004294B9 /* mo_audio.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = mo_audio.mm; path = Ext/MoMu/mo_audio.mm; sourceTree = SOURCE_ROOT; };
+		DACE18C71741A880004294B9 /* mo_def.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = mo_def.h; path = Ext/MoMu/mo_def.h; sourceTree = SOURCE_ROOT; };
+		DACE18C81741A892004294B9 /* FileRead.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = FileRead.cpp; path = Ext/Stk/FileRead.cpp; sourceTree = SOURCE_ROOT; };
+		DACE18C91741A892004294B9 /* FileRead.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = FileRead.h; path = Ext/Stk/FileRead.h; sourceTree = SOURCE_ROOT; };
+		DACE18CA1741A892004294B9 /* FileWrite.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = FileWrite.cpp; path = Ext/Stk/FileWrite.cpp; sourceTree = SOURCE_ROOT; };
+		DACE18CB1741A892004294B9 /* FileWrite.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = FileWrite.h; path = Ext/Stk/FileWrite.h; sourceTree = SOURCE_ROOT; };
+		DACE18CC1741A892004294B9 /* FileWvIn.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = FileWvIn.cpp; path = Ext/Stk/FileWvIn.cpp; sourceTree = SOURCE_ROOT; };
+		DACE18CD1741A892004294B9 /* FileWvIn.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = FileWvIn.h; path = Ext/Stk/FileWvIn.h; sourceTree = SOURCE_ROOT; };
+		DACE18CE1741A892004294B9 /* FileWvOut.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = FileWvOut.cpp; path = Ext/Stk/FileWvOut.cpp; sourceTree = SOURCE_ROOT; };
+		DACE18CF1741A892004294B9 /* FileWvOut.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = FileWvOut.h; path = Ext/Stk/FileWvOut.h; sourceTree = SOURCE_ROOT; };
+		DACE18D01741A892004294B9 /* Stk.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Stk.h; path = Ext/Stk/Stk.h; sourceTree = SOURCE_ROOT; };
+		DACE18D11741A892004294B9 /* Stk.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = Stk.mm; path = Ext/Stk/Stk.mm; sourceTree = SOURCE_ROOT; };
+		DACE18D21741A892004294B9 /* WvIn.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = WvIn.h; path = Ext/Stk/WvIn.h; sourceTree = SOURCE_ROOT; };
+		DACE18D31741A892004294B9 /* WvOut.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = WvOut.h; path = Ext/Stk/WvOut.h; sourceTree = SOURCE_ROOT; };
+		DACE18DA1741A8FD004294B9 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,6 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DACE18DB1741A8FD004294B9 /* AudioToolbox.framework in Frameworks */,
 				DA0C094B174177D90023FC61 /* UIKit.framework in Frameworks */,
 				DA0C094D174177DA0023FC61 /* Foundation.framework in Frameworks */,
 				DA0C094F174177DA0023FC61 /* CoreGraphics.framework in Frameworks */,
@@ -58,6 +97,7 @@
 		DA0C093E174177D90023FC61 = {
 			isa = PBXGroup;
 			children = (
+				DACE18DA1741A8FD004294B9 /* AudioToolbox.framework */,
 				DA0C0950174177DA0023FC61 /* TapIt */,
 				DA0C0949174177D90023FC61 /* Frameworks */,
 				DA0C0948174177D90023FC61 /* Products */,
@@ -85,12 +125,16 @@
 		DA0C0950174177DA0023FC61 /* TapIt */ = {
 			isa = PBXGroup;
 			children = (
+				DACE18C21741A68B004294B9 /* Ext */,
+				DACE18C11741A67F004294B9 /* Audio */,
+				DACE18B01741A01D004294B9 /* iPad */,
+				DACE18AF17419F8B004294B9 /* iPhone */,
 				DA0C0959174177DA0023FC61 /* TIAppDelegate.h */,
 				DA0C095A174177DA0023FC61 /* TIAppDelegate.m */,
-				DA0C0962174177DA0023FC61 /* MainStoryboard_iPhone.storyboard */,
-				DA0C0965174177DA0023FC61 /* MainStoryboard_iPad.storyboard */,
 				DA0C0968174177DA0023FC61 /* TIViewController.h */,
 				DA0C0969174177DA0023FC61 /* TIViewController.m */,
+				DACE18DC1741A945004294B9 /* Trial */,
+				DA0C0970174178770023FC61 /* Resources */,
 				DA0C0951174177DA0023FC61 /* Supporting Files */,
 			);
 			path = TapIt;
@@ -108,6 +152,99 @@
 				DA0C0960174177DA0023FC61 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		DA0C0970174178770023FC61 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				DA0C0962174177DA0023FC61 /* MainStoryboard_iPhone.storyboard */,
+				DA0C0965174177DA0023FC61 /* MainStoryboard_iPad.storyboard */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		DACE18AF17419F8B004294B9 /* iPhone */ = {
+			isa = PBXGroup;
+			children = (
+				DACE18C01741A0E3004294B9 /* Settings */,
+				DACE18B11741A078004294B9 /* TIConsentViewController.h */,
+				DACE18B21741A078004294B9 /* TIConsentViewController.m */,
+				DACE18B41741A095004294B9 /* TITaskViewController.h */,
+				DACE18B51741A095004294B9 /* TITaskViewController.m */,
+				DACE18B71741A0B1004294B9 /* TIEndTaskViewController.h */,
+				DACE18B81741A0B1004294B9 /* TIEndTaskViewController.m */,
+			);
+			name = iPhone;
+			sourceTree = "<group>";
+		};
+		DACE18B01741A01D004294B9 /* iPad */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = iPad;
+			sourceTree = "<group>";
+		};
+		DACE18C01741A0E3004294B9 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				DACE18BA1741A0C7004294B9 /* TISettingsViewController.h */,
+				DACE18BB1741A0C7004294B9 /* TISettingsViewController.m */,
+				DACE18BD1741A0DD004294B9 /* TITrackListViewController.h */,
+				DACE18BE1741A0DD004294B9 /* TITrackListViewController.m */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
+		DACE18C11741A67F004294B9 /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Audio;
+			sourceTree = "<group>";
+		};
+		DACE18C21741A68B004294B9 /* Ext */ = {
+			isa = PBXGroup;
+			children = (
+				DACE18C61741A875004294B9 /* Stk */,
+				DACE18C31741A7DE004294B9 /* MoMu */,
+			);
+			name = Ext;
+			sourceTree = "<group>";
+		};
+		DACE18C31741A7DE004294B9 /* MoMu */ = {
+			isa = PBXGroup;
+			children = (
+				DACE18C71741A880004294B9 /* mo_def.h */,
+				DACE18C41741A86F004294B9 /* mo_audio.h */,
+				DACE18C51741A86F004294B9 /* mo_audio.mm */,
+			);
+			name = MoMu;
+			sourceTree = "<group>";
+		};
+		DACE18C61741A875004294B9 /* Stk */ = {
+			isa = PBXGroup;
+			children = (
+				DACE18C81741A892004294B9 /* FileRead.cpp */,
+				DACE18C91741A892004294B9 /* FileRead.h */,
+				DACE18CA1741A892004294B9 /* FileWrite.cpp */,
+				DACE18CB1741A892004294B9 /* FileWrite.h */,
+				DACE18CC1741A892004294B9 /* FileWvIn.cpp */,
+				DACE18CD1741A892004294B9 /* FileWvIn.h */,
+				DACE18CE1741A892004294B9 /* FileWvOut.cpp */,
+				DACE18CF1741A892004294B9 /* FileWvOut.h */,
+				DACE18D01741A892004294B9 /* Stk.h */,
+				DACE18D11741A892004294B9 /* Stk.mm */,
+				DACE18D21741A892004294B9 /* WvIn.h */,
+				DACE18D31741A892004294B9 /* WvOut.h */,
+			);
+			name = Stk;
+			sourceTree = "<group>";
+		};
+		DACE18DC1741A945004294B9 /* Trial */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Trial;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -178,9 +315,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DACE18D41741A8C3004294B9 /* FileRead.cpp in Sources */,
+				DACE18D51741A8C3004294B9 /* FileWrite.cpp in Sources */,
+				DACE18D61741A8C3004294B9 /* FileWvIn.cpp in Sources */,
+				DACE18D71741A8C3004294B9 /* FileWvOut.cpp in Sources */,
+				DACE18D81741A8C3004294B9 /* Stk.mm in Sources */,
+				DACE18D91741A8C3004294B9 /* mo_audio.mm in Sources */,
 				DA0C0957174177DA0023FC61 /* main.m in Sources */,
 				DA0C095B174177DA0023FC61 /* TIAppDelegate.m in Sources */,
 				DA0C096A174177DA0023FC61 /* TIViewController.m in Sources */,
+				DACE18B31741A078004294B9 /* TIConsentViewController.m in Sources */,
+				DACE18B61741A095004294B9 /* TITaskViewController.m in Sources */,
+				DACE18B91741A0B1004294B9 /* TIEndTaskViewController.m in Sources */,
+				DACE18BC1741A0C7004294B9 /* TISettingsViewController.m in Sources */,
+				DACE18BF1741A0DD004294B9 /* TITrackListViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,6 +426,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TapIt/TapIt-Prefix.pch";
 				INFOPLIST_FILE = "TapIt/TapIt-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -289,6 +438,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TapIt/TapIt-Prefix.pch";
 				INFOPLIST_FILE = "TapIt/TapIt-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -313,6 +463,7 @@
 				DA0C096F174177DA0023FC61 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
