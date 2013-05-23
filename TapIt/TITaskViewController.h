@@ -10,6 +10,8 @@
 
 @interface TITaskViewController : UIViewController
 
+@property IBOutlet UILabel* tapLabel;
+
 - (IBAction)tappedPrev:(UIBarButtonItem*)sender;
 - (IBAction)tappedPlay:(UIBarButtonItem*)sender;
 - (IBAction)tappedNext:(UIBarButtonItem*)sender;
