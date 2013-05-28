@@ -11,16 +11,23 @@
 @interface TITaskManager : NSObject
 
 + (NSString *) documentsDirectory;
++ (NSString*) createSessionId;
++ (void) checkDirectoryPath:(NSString*)pathString;
 
-- (void) loadTaskfile:(NSString*)taskFile;
+- (void) prepareSession;
 
 // Returns the audio filename for the current task
 - (NSString*) getAudioFilename;
+- (NSString*) getOutputFilename;
 
 // Increases the current task pointer and returns the filename for the next task
 - (NSString*) nextTask;
 // Decreases the current task pointer and returns the filename for the previous task
 - (NSString*) prevTask;
+
+- (void) saveTapData:(NSString*)tapData;
+
+@property NSString* sessionId;
 
 @property NSInteger currentTask;
 @property (readonly) NSInteger taskCount;

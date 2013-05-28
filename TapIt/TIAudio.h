@@ -13,6 +13,7 @@
 
 #include "mo_audio.h"
 #include "FileWvIn.h"
+#include "FileWvOut.h"
 
 #define SAMPLE_RATE 44100.0
 #define BUFFER_SIZE 256
@@ -29,6 +30,8 @@ public:
     }
     
     void loadAudioFile( std::string& audioFile );
+    void openRecordFile( std::string& audioFile );
+    void closeFiles();
     
     void play();
     void pause();
@@ -43,6 +46,7 @@ private:
     bool _isInitialized;
     
     stk::FileWvIn _waveReader;
+    stk::FileWvOut _waveWriter;
     bool _isPlaying;
     
 public: // internal callback

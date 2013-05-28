@@ -16,8 +16,12 @@
 
 @property (nonatomic) TITaskManager* taskManager;
 
-- (void) prepareTask;
+@property NSTimeInterval startTime;
+@property NSMutableString* tapData;
+
 - (void) playAudio:(BOOL)play;
+
+- (void) prepareTask;
 
 @end
 
@@ -35,9 +39,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    // TODO: load task data from current task.csv file
-    [self.taskManager loadTaskfile:[NSString stringWithFormat:@"%@/%@", [TITaskManager documentsDirectory], @"trial.csv"]];
+        
+    [self.taskManager prepareSession];
     
     [self prepareTask];
 }
@@ -58,8 +61,11 @@
     self.tapLabel.textColor = [UIColor greenColor];
 
     // get tap on time
-    NSTimeInterval tapOnTime = [[NSDate date] timeIntervalSince1970];// - self.startTime;
+    NSTimeInterval tapOnTime = [[NSDate date] timeIntervalSince1970] - self.startTime;
     NSLog(@"Tap On: %.3f", tapOnTime);
+    
+    // append
+    [self.tapData appendFormat:@"%f, ", tapOnTime];
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
@@ -70,7 +76,7 @@
     self.tapLabel.textColor = [UIColor blackColor];
 
     // get tap off time
-    NSTimeInterval tapOffTime = [[NSDate date] timeIntervalSince1970];// - self.startTime;;
+    NSTimeInterval tapOffTime = [[NSDate date] timeIntervalSince1970] - self.startTime;
     NSLog(@"Tap Off: %.3f", tapOffTime);
 }
 
@@ -78,7 +84,7 @@
 
 - (IBAction)tappedPrev:(UIBarButtonItem*)sender
 {
-    if (self.taskManager.currentTask > 0) {
+    if (self.taskManager.currentTask > 0) { // load prev task
         
         [self.taskManager prevTask];
         [self prepareTask];
@@ -92,13 +98,25 @@
 
 - (IBAction)tappedNext:(UIBarButtonItem*)sender
 {
-    if (self.taskManager.currentTask < (self.taskManager.taskCount-1)) {
+    // save data to file
+    if (self.tapData.length > 2) // remove last comma
+        [self.tapData deleteCharactersInRange:NSMakeRange(self.tapData.length-2, 2)];
+
+    [self.taskManager saveTapData:self.tapData];
+    
+    if (self.taskManager.currentTask < (self.taskManager.taskCount-1)) { // load next task
         
         [self.taskManager nextTask];
         [self prepareTask];
     }
     else { // finished all tasks
 
+        [self playAudio:NO];
+        
+        // close audio files
+        TIAudio::getInstance().closeFiles();
+        
+        // segue
         [self performSegueWithIdentifier:@"TaskToEnd"
                                   sender:self];
     }
@@ -115,6 +133,19 @@
     return _taskManager;
 }
 
+- (void) playAudio:(BOOL)play
+{
+    if (play) {
+        self.startTime = [[NSDate date] timeIntervalSince1970];
+        TIAudio::getInstance().play();
+        self.playButton.title = @"Pause";
+    }
+    else {
+        TIAudio::getInstance().pause();
+        self.playButton.title = @"Play";
+    }
+}
+
 - (void) prepareTask
 {
     // stop audio
@@ -123,23 +154,18 @@
     // load new audio
     NSString* filename = [self.taskManager getAudioFilename];
     std::string audioFile([filename UTF8String]);
-    NSLog(@"%s", audioFile.c_str());
     TIAudio::getInstance().loadAudioFile(audioFile);
+    
+    // open file to write
+    NSString* outputFilename = [self.taskManager getOutputFilename];
+    std::string outputFile([outputFilename UTF8String]);
+    TIAudio::getInstance().openRecordFile(outputFile);
+    
+    // reset data string
+    self.tapData = [NSMutableString stringWithCapacity:1];
     
     // update title
     self.title = [NSString stringWithFormat:@"Task #%d", self.taskManager.currentTask+1];
-}
-
-- (void) playAudio:(BOOL)play
-{
-    if (play) {
-        TIAudio::getInstance().play();
-        self.playButton.title = @"Pause";
-    }
-    else {
-        TIAudio::getInstance().pause();
-        self.playButton.title = @"Play";
-    }
 }
 
 @end

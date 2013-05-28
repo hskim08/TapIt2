@@ -18,11 +18,53 @@
 - (CSVParser*) parserWithPath:(NSString*)path;
 - (CSVParser*) parseCsvString:(NSString*)csvString;
 
-- (NSString*) filenameAt:(NSInteger)taskNo;
+@property NSString* sessionPath;
+
+// loads the task data from task file
+- (void) loadTaskfile:(NSString*)taskFile;
+
+// returns the filename for task
+- (NSString*) filenameOf:(NSInteger)taskNo;
 
 @end
 
 @implementation TITaskManager
+
+#pragma mark - Class Selectors
+
++ (NSString *) documentsDirectory
+{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *basePath = ([paths count] > 0) ? [paths objectAtIndex:0] : nil;
+    return basePath;
+}
+
++ (NSString*) createSessionId
+{
+    NSDate *date = [NSDate date];
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc]init];
+    [dateFormat setDateFormat:@"yyyyMMdd-HHmmss"];
+    NSString *dateString = [dateFormat stringFromDate:date];
+    
+    return dateString;
+}
+
++ (void) checkDirectoryPath:(NSString*)pathString
+{
+    // check if saved dir exists
+    NSFileManager* fileManager = [NSFileManager defaultManager];
+    if ( ![fileManager fileExistsAtPath:pathString] ) {
+        NSError* error;
+        [fileManager createDirectoryAtPath:pathString
+               withIntermediateDirectories:YES
+                                attributes:nil
+                                     error:&error];
+        if (error)
+            NSLog(@"Failed to create saved directory:: %@", error.description);
+    }
+}
+
+#pragma mark - Public Selectors
 
 - (void) loadTaskfile:(NSString*)taskFile
 {
@@ -35,13 +77,34 @@
     NSLog(@"Task Count: %d", ar.count);
 }
 
+- (void) prepareSession
+{
+    // create session id
+    self.sessionId = [TITaskManager createSessionId];
+    
+    // TODO: load task data from current task.csv file
+    [self loadTaskfile:[NSString stringWithFormat:@"%@/%@", [TITaskManager documentsDirectory], @"trial.csv"]];
+    
+    // create session folder
+    self.sessionPath = [NSString stringWithFormat:@"%@/%@", [TITaskManager documentsDirectory], self.sessionId];
+    [TITaskManager checkDirectoryPath:self.sessionPath];
+    
+    // TODO: if randomized save track list order
+}
+
 - (NSString*) getAudioFilename
 {
     // create full path name
-    NSString* str = [self filenameAt:self.currentTask];
+    NSString* str = [self filenameOf:self.currentTask];
     
     return [NSString stringWithFormat:@"%@/%@", [TITaskManager documentsDirectory], str];
 }
+
+- (NSString *)getOutputFilename
+{
+    return [NSString stringWithFormat:@"%@/%03d.wav", self.sessionPath, self.currentTask];
+}
+
 
 - (NSString*) nextTask
 {
@@ -63,6 +126,20 @@
 - (NSInteger) taskCount
 {
     return [self.csvParser arrayOfParsedRows].count;
+}
+
+- (void) saveTapData:(NSString*)tapData
+{
+    NSString* filename = [NSString stringWithFormat:@"%@/%03d.csv", self.sessionPath, self.currentTask];
+    
+    NSError* error;
+    [tapData writeToFile:filename
+              atomically:YES
+                encoding:NSUTF8StringEncoding
+                   error:&error];
+    
+    if (error)
+        NSLog(@"%@", [error description]);
 }
 
 #pragma mark - Private Implementation
@@ -111,16 +188,10 @@
             ];
 }
 
-- (NSString*) filenameAt:(NSInteger)taskNo
+- (NSString*) filenameOf:(NSInteger)taskNo
 {
     NSDictionary* taskData = [[self.csvParser arrayOfParsedRows] objectAtIndex:taskNo];
     return [taskData objectForKey:@"Filename"];
 }
 
-+ (NSString *) documentsDirectory
-{
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *basePath = ([paths count] > 0) ? [paths objectAtIndex:0] : nil;
-    return basePath;
-}
 @end

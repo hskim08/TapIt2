@@ -33,6 +33,18 @@ void TIAudio::loadAudioFile(std::string& audioFile)
     _waveReader.openFile(audioFile);
 }
 
+void TIAudio::openRecordFile( std::string& audioFile )
+{
+    NSLog(@"loading audio: %s", audioFile.c_str());
+    _waveWriter.openFile(audioFile, 2, stk::FileWrite::FILE_WAV, stk::Stk::STK_SINT16);
+}
+
+void TIAudio::closeFiles()
+{
+    _waveWriter.closeFile();
+    _waveReader.closeFile();
+}
+
 void TIAudio::play()
 {
     _isPlaying = true;
@@ -77,11 +89,18 @@ void TIAudio::handleAudio(Float32* buffer, UInt32 numFrames)
     for (int i = 0; i < numFrames; i++) {
         
         if (_isPlaying) {
-            // TODO: handle multi-channel data
+            // write audio
+            _waveWriter.tick(buffer[2*i]);
             
-            buffer[2*i] = buffer[2*i+1] = _waveReader.tick();
+            // play audio file
+            _waveReader.tick();
+            buffer[2*i] = _waveReader.lastOut(0);
+            buffer[2*i + 1] = _waveReader.lastOut(1);
+
         }
-        else
+        else {
+            
             buffer[2*i] = buffer[2*i+1] = 0;
+        }
     }
 }
