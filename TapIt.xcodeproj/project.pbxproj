@@ -24,9 +24,11 @@
 		DA317138174DF5DC009C6AA7 /* trial02.wav in Resources */ = {isa = PBXBuildFile; fileRef = DA317135174DF5DC009C6AA7 /* trial02.wav */; };
 		DA317139174DF5DC009C6AA7 /* trial03.wav in Resources */ = {isa = PBXBuildFile; fileRef = DA317136174DF5DC009C6AA7 /* trial03.wav */; };
 		DA31713C174DFA31009C6AA7 /* TITaskManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DA31713B174DFA31009C6AA7 /* TITaskManager.m */; };
-		DA317140174DFBF5009C6AA7 /* trial.csv in Resources */ = {isa = PBXBuildFile; fileRef = DA31713F174DFBF5009C6AA7 /* trial.csv */; };
+		DA317144174DFD23009C6AA7 /* CSVParser.m in Sources */ = {isa = PBXBuildFile; fileRef = DA317143174DFD23009C6AA7 /* CSVParser.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		DA9B155717516B1800E8B39C /* TIAudio.mm in Sources */ = {isa = PBXBuildFile; fileRef = DA9B155617516B1800E8B39C /* TIAudio.mm */; };
+		DAAFF74A17552A1B0054DAE5 /* trial.csv in Resources */ = {isa = PBXBuildFile; fileRef = DAAFF74917552A1B0054DAE5 /* trial.csv */; };
 		DACE18B31741A078004294B9 /* TIConsentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DACE18B21741A078004294B9 /* TIConsentViewController.m */; };
-		DACE18B61741A095004294B9 /* TITaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DACE18B51741A095004294B9 /* TITaskViewController.m */; };
+		DACE18B61741A095004294B9 /* TITaskViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = DACE18B51741A095004294B9 /* TITaskViewController.mm */; };
 		DACE18B91741A0B1004294B9 /* TIEndTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DACE18B81741A0B1004294B9 /* TIEndTaskViewController.m */; };
 		DACE18BC1741A0C7004294B9 /* TISettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DACE18BB1741A0C7004294B9 /* TISettingsViewController.m */; };
 		DACE18BF1741A0DD004294B9 /* TITrackListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DACE18BE1741A0DD004294B9 /* TITrackListViewController.m */; };
@@ -62,11 +64,15 @@
 		DA317136174DF5DC009C6AA7 /* trial03.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = trial03.wav; path = Trial/trial03.wav; sourceTree = SOURCE_ROOT; };
 		DA31713A174DFA31009C6AA7 /* TITaskManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TITaskManager.h; sourceTree = "<group>"; };
 		DA31713B174DFA31009C6AA7 /* TITaskManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TITaskManager.m; sourceTree = "<group>"; };
-		DA31713F174DFBF5009C6AA7 /* trial.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = trial.csv; sourceTree = "<group>"; };
+		DA317142174DFD23009C6AA7 /* CSVParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSVParser.h; sourceTree = "<group>"; };
+		DA317143174DFD23009C6AA7 /* CSVParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSVParser.m; sourceTree = "<group>"; };
+		DA9B155517516B1800E8B39C /* TIAudio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TIAudio.h; sourceTree = "<group>"; };
+		DA9B155617516B1800E8B39C /* TIAudio.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TIAudio.mm; sourceTree = "<group>"; };
+		DAAFF74917552A1B0054DAE5 /* trial.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = trial.csv; path = Trial/trial.csv; sourceTree = SOURCE_ROOT; };
 		DACE18B11741A078004294B9 /* TIConsentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TIConsentViewController.h; sourceTree = "<group>"; };
 		DACE18B21741A078004294B9 /* TIConsentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TIConsentViewController.m; sourceTree = "<group>"; };
 		DACE18B41741A095004294B9 /* TITaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TITaskViewController.h; sourceTree = "<group>"; };
-		DACE18B51741A095004294B9 /* TITaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TITaskViewController.m; sourceTree = "<group>"; };
+		DACE18B51741A095004294B9 /* TITaskViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TITaskViewController.mm; sourceTree = "<group>"; };
 		DACE18B71741A0B1004294B9 /* TIEndTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TIEndTaskViewController.h; sourceTree = "<group>"; };
 		DACE18B81741A0B1004294B9 /* TIEndTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TIEndTaskViewController.m; sourceTree = "<group>"; };
 		DACE18BA1741A0C7004294B9 /* TISettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TISettingsViewController.h; sourceTree = "<group>"; };
@@ -143,11 +149,11 @@
 				DACE18AF17419F8B004294B9 /* iPhone */,
 				DA0C0959174177DA0023FC61 /* TIAppDelegate.h */,
 				DA0C095A174177DA0023FC61 /* TIAppDelegate.m */,
+				DA31713A174DFA31009C6AA7 /* TITaskManager.h */,
+				DA31713B174DFA31009C6AA7 /* TITaskManager.m */,
 				DACE18DC1741A945004294B9 /* Trial */,
 				DA0C0970174178770023FC61 /* Resources */,
 				DA0C0951174177DA0023FC61 /* Supporting Files */,
-				DA31713A174DFA31009C6AA7 /* TITaskManager.h */,
-				DA31713B174DFA31009C6AA7 /* TITaskManager.m */,
 			);
 			path = TapIt;
 			sourceTree = "<group>";
@@ -177,6 +183,15 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
+		DA317141174DFD0F009C6AA7 /* CSVParser */ = {
+			isa = PBXGroup;
+			children = (
+				DA317142174DFD23009C6AA7 /* CSVParser.h */,
+				DA317143174DFD23009C6AA7 /* CSVParser.m */,
+			);
+			name = CSVParser;
+			sourceTree = "<group>";
+		};
 		DACE18AF17419F8B004294B9 /* iPhone */ = {
 			isa = PBXGroup;
 			children = (
@@ -184,7 +199,7 @@
 				DACE18B11741A078004294B9 /* TIConsentViewController.h */,
 				DACE18B21741A078004294B9 /* TIConsentViewController.m */,
 				DACE18B41741A095004294B9 /* TITaskViewController.h */,
-				DACE18B51741A095004294B9 /* TITaskViewController.m */,
+				DACE18B51741A095004294B9 /* TITaskViewController.mm */,
 				DACE18B71741A0B1004294B9 /* TIEndTaskViewController.h */,
 				DACE18B81741A0B1004294B9 /* TIEndTaskViewController.m */,
 			);
@@ -212,6 +227,8 @@
 		DACE18C11741A67F004294B9 /* Audio */ = {
 			isa = PBXGroup;
 			children = (
+				DA9B155517516B1800E8B39C /* TIAudio.h */,
+				DA9B155617516B1800E8B39C /* TIAudio.mm */,
 			);
 			name = Audio;
 			sourceTree = "<group>";
@@ -219,6 +236,7 @@
 		DACE18C21741A68B004294B9 /* Ext */ = {
 			isa = PBXGroup;
 			children = (
+				DA317141174DFD0F009C6AA7 /* CSVParser */,
 				DACE18C61741A875004294B9 /* Stk */,
 				DACE18C31741A7DE004294B9 /* MoMu */,
 			);
@@ -257,7 +275,7 @@
 		DACE18DC1741A945004294B9 /* Trial */ = {
 			isa = PBXGroup;
 			children = (
-				DA31713F174DFBF5009C6AA7 /* trial.csv */,
+				DAAFF74917552A1B0054DAE5 /* trial.csv */,
 				DA317134174DF5DC009C6AA7 /* trial01.wav */,
 				DA317135174DF5DC009C6AA7 /* trial02.wav */,
 				DA317136174DF5DC009C6AA7 /* trial03.wav */,
@@ -328,7 +346,7 @@
 				DA317137174DF5DC009C6AA7 /* trial01.wav in Resources */,
 				DA317138174DF5DC009C6AA7 /* trial02.wav in Resources */,
 				DA317139174DF5DC009C6AA7 /* trial03.wav in Resources */,
-				DA317140174DFBF5009C6AA7 /* trial.csv in Resources */,
+				DAAFF74A17552A1B0054DAE5 /* trial.csv in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -348,11 +366,13 @@
 				DA0C0957174177DA0023FC61 /* main.m in Sources */,
 				DA0C095B174177DA0023FC61 /* TIAppDelegate.m in Sources */,
 				DACE18B31741A078004294B9 /* TIConsentViewController.m in Sources */,
-				DACE18B61741A095004294B9 /* TITaskViewController.m in Sources */,
+				DACE18B61741A095004294B9 /* TITaskViewController.mm in Sources */,
 				DACE18B91741A0B1004294B9 /* TIEndTaskViewController.m in Sources */,
 				DACE18BC1741A0C7004294B9 /* TISettingsViewController.m in Sources */,
 				DACE18BF1741A0DD004294B9 /* TITrackListViewController.m in Sources */,
 				DA31713C174DFA31009C6AA7 /* TITaskManager.m in Sources */,
+				DA317144174DFD23009C6AA7 /* CSVParser.m in Sources */,
+				DA9B155717516B1800E8B39C /* TIAudio.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

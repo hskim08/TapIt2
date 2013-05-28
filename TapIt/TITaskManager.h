@@ -10,10 +10,17 @@
 
 @interface TITaskManager : NSObject
 
-- (id) initWithTaskfile:(NSString*)taskFile;
++ (NSString *) documentsDirectory;
 
-- (NSString*) nextTrack;
-- (NSString*) prevTrack;
+- (void) loadTaskfile:(NSString*)taskFile;
+
+// Returns the audio filename for the current task
+- (NSString*) getAudioFilename;
+
+// Increases the current task pointer and returns the filename for the next task
+- (NSString*) nextTask;
+// Decreases the current task pointer and returns the filename for the previous task
+- (NSString*) prevTask;
 
 @property NSInteger currentTask;
 @property (readonly) NSInteger taskCount;
