@@ -8,9 +8,13 @@
 
 #import "TITaskManager.h"
 
+#import "TIFileManager.h"
+
 #import "CSVParser.h"
 
 @interface TITaskManager()
+
++ (NSString*) createSessionId;
 
 @property CSVParser* csvParser;
 
@@ -32,13 +36,6 @@
 
 #pragma mark - Class Selectors
 
-+ (NSString *) documentsDirectory
-{
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *basePath = ([paths count] > 0) ? [paths objectAtIndex:0] : nil;
-    return basePath;
-}
-
 + (NSString*) createSessionId
 {
     NSDate *date = [NSDate date];
@@ -47,21 +44,6 @@
     NSString *dateString = [dateFormat stringFromDate:date];
     
     return dateString;
-}
-
-+ (void) checkDirectoryPath:(NSString*)pathString
-{
-    // check if saved dir exists
-    NSFileManager* fileManager = [NSFileManager defaultManager];
-    if ( ![fileManager fileExistsAtPath:pathString] ) {
-        NSError* error;
-        [fileManager createDirectoryAtPath:pathString
-               withIntermediateDirectories:YES
-                                attributes:nil
-                                     error:&error];
-        if (error)
-            NSLog(@"Failed to create saved directory:: %@", error.description);
-    }
 }
 
 #pragma mark - Public Selectors
@@ -83,11 +65,11 @@
     self.sessionId = [TITaskManager createSessionId];
     
     // TODO: load task data from current task.csv file
-    [self loadTaskfile:[NSString stringWithFormat:@"%@/%@", [TITaskManager documentsDirectory], @"trial.csv"]];
+    [self loadTaskfile:[NSString stringWithFormat:@"%@/%@", [TIFileManager documentsDirectory], @"example.csv"]];
     
     // create session folder
-    self.sessionPath = [NSString stringWithFormat:@"%@/%@", [TITaskManager documentsDirectory], self.sessionId];
-    [TITaskManager checkDirectoryPath:self.sessionPath];
+    self.sessionPath = [NSString stringWithFormat:@"%@/%@", [TIFileManager documentsDirectory], self.sessionId];
+    [TIFileManager checkDirectoryPath:self.sessionPath];
     
     // TODO: if randomized save track list order
 }
@@ -97,7 +79,7 @@
     // create full path name
     NSString* str = [self filenameOf:self.currentTask];
     
-    return [NSString stringWithFormat:@"%@/%@", [TITaskManager documentsDirectory], str];
+    return [NSString stringWithFormat:@"%@/%@", [TIFileManager documentsDirectory], str];
 }
 
 - (NSString *)getOutputFilename

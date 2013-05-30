@@ -20,13 +20,14 @@
 		DA0C0967174177DA0023FC61 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA0C0965174177DA0023FC61 /* MainStoryboard_iPad.storyboard */; };
 		DA317131174DEE8A009C6AA7 /* icon57.png in Resources */ = {isa = PBXBuildFile; fileRef = DA317130174DEE8A009C6AA7 /* icon57.png */; };
 		DA317133174DEE8D009C6AA7 /* icon114.png in Resources */ = {isa = PBXBuildFile; fileRef = DA317132174DEE8D009C6AA7 /* icon114.png */; };
-		DA317137174DF5DC009C6AA7 /* trial01.wav in Resources */ = {isa = PBXBuildFile; fileRef = DA317134174DF5DC009C6AA7 /* trial01.wav */; };
-		DA317138174DF5DC009C6AA7 /* trial02.wav in Resources */ = {isa = PBXBuildFile; fileRef = DA317135174DF5DC009C6AA7 /* trial02.wav */; };
-		DA317139174DF5DC009C6AA7 /* trial03.wav in Resources */ = {isa = PBXBuildFile; fileRef = DA317136174DF5DC009C6AA7 /* trial03.wav */; };
+		DA317137174DF5DC009C6AA7 /* example01.wav in Resources */ = {isa = PBXBuildFile; fileRef = DA317134174DF5DC009C6AA7 /* example01.wav */; };
+		DA317138174DF5DC009C6AA7 /* example02.wav in Resources */ = {isa = PBXBuildFile; fileRef = DA317135174DF5DC009C6AA7 /* example02.wav */; };
+		DA317139174DF5DC009C6AA7 /* example03.wav in Resources */ = {isa = PBXBuildFile; fileRef = DA317136174DF5DC009C6AA7 /* example03.wav */; };
 		DA31713C174DFA31009C6AA7 /* TITaskManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DA31713B174DFA31009C6AA7 /* TITaskManager.m */; };
 		DA317144174DFD23009C6AA7 /* CSVParser.m in Sources */ = {isa = PBXBuildFile; fileRef = DA317143174DFD23009C6AA7 /* CSVParser.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		DA4A25AC17576F9400E6A2ED /* TIFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DA4A25AB17576F9400E6A2ED /* TIFileManager.m */; };
 		DA9B155717516B1800E8B39C /* TIAudio.mm in Sources */ = {isa = PBXBuildFile; fileRef = DA9B155617516B1800E8B39C /* TIAudio.mm */; };
-		DAAFF74A17552A1B0054DAE5 /* trial.csv in Resources */ = {isa = PBXBuildFile; fileRef = DAAFF74917552A1B0054DAE5 /* trial.csv */; };
+		DAAFF74A17552A1B0054DAE5 /* example.csv in Resources */ = {isa = PBXBuildFile; fileRef = DAAFF74917552A1B0054DAE5 /* example.csv */; };
 		DACE18B31741A078004294B9 /* TIConsentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DACE18B21741A078004294B9 /* TIConsentViewController.m */; };
 		DACE18B61741A095004294B9 /* TITaskViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = DACE18B51741A095004294B9 /* TITaskViewController.mm */; };
 		DACE18B91741A0B1004294B9 /* TIEndTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DACE18B81741A0B1004294B9 /* TIEndTaskViewController.m */; };
@@ -59,16 +60,18 @@
 		DA0C0966174177DA0023FC61 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
 		DA317130174DEE8A009C6AA7 /* icon57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon57.png; path = ../icon57.png; sourceTree = "<group>"; };
 		DA317132174DEE8D009C6AA7 /* icon114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon114.png; path = ../icon114.png; sourceTree = "<group>"; };
-		DA317134174DF5DC009C6AA7 /* trial01.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = trial01.wav; path = Trial/trial01.wav; sourceTree = SOURCE_ROOT; };
-		DA317135174DF5DC009C6AA7 /* trial02.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = trial02.wav; path = Trial/trial02.wav; sourceTree = SOURCE_ROOT; };
-		DA317136174DF5DC009C6AA7 /* trial03.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = trial03.wav; path = Trial/trial03.wav; sourceTree = SOURCE_ROOT; };
+		DA317134174DF5DC009C6AA7 /* example01.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = example01.wav; path = Trial/example01.wav; sourceTree = SOURCE_ROOT; };
+		DA317135174DF5DC009C6AA7 /* example02.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = example02.wav; path = Trial/example02.wav; sourceTree = SOURCE_ROOT; };
+		DA317136174DF5DC009C6AA7 /* example03.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = example03.wav; path = Trial/example03.wav; sourceTree = SOURCE_ROOT; };
 		DA31713A174DFA31009C6AA7 /* TITaskManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TITaskManager.h; sourceTree = "<group>"; };
 		DA31713B174DFA31009C6AA7 /* TITaskManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TITaskManager.m; sourceTree = "<group>"; };
 		DA317142174DFD23009C6AA7 /* CSVParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSVParser.h; sourceTree = "<group>"; };
 		DA317143174DFD23009C6AA7 /* CSVParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSVParser.m; sourceTree = "<group>"; };
+		DA4A25AA17576F9400E6A2ED /* TIFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TIFileManager.h; sourceTree = "<group>"; };
+		DA4A25AB17576F9400E6A2ED /* TIFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TIFileManager.m; sourceTree = "<group>"; };
 		DA9B155517516B1800E8B39C /* TIAudio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TIAudio.h; sourceTree = "<group>"; };
 		DA9B155617516B1800E8B39C /* TIAudio.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TIAudio.mm; sourceTree = "<group>"; };
-		DAAFF74917552A1B0054DAE5 /* trial.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = trial.csv; path = Trial/trial.csv; sourceTree = SOURCE_ROOT; };
+		DAAFF74917552A1B0054DAE5 /* example.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = example.csv; path = Trial/example.csv; sourceTree = SOURCE_ROOT; };
 		DACE18B11741A078004294B9 /* TIConsentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TIConsentViewController.h; sourceTree = "<group>"; };
 		DACE18B21741A078004294B9 /* TIConsentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TIConsentViewController.m; sourceTree = "<group>"; };
 		DACE18B41741A095004294B9 /* TITaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TITaskViewController.h; sourceTree = "<group>"; };
@@ -151,7 +154,9 @@
 				DA0C095A174177DA0023FC61 /* TIAppDelegate.m */,
 				DA31713A174DFA31009C6AA7 /* TITaskManager.h */,
 				DA31713B174DFA31009C6AA7 /* TITaskManager.m */,
-				DACE18DC1741A945004294B9 /* Trial */,
+				DA4A25AA17576F9400E6A2ED /* TIFileManager.h */,
+				DA4A25AB17576F9400E6A2ED /* TIFileManager.m */,
+				DACE18DC1741A945004294B9 /* Example */,
 				DA0C0970174178770023FC61 /* Resources */,
 				DA0C0951174177DA0023FC61 /* Supporting Files */,
 			);
@@ -192,16 +197,24 @@
 			name = CSVParser;
 			sourceTree = "<group>";
 		};
-		DACE18AF17419F8B004294B9 /* iPhone */ = {
+		DA4A25AD1757787C00E6A2ED /* Task */ = {
 			isa = PBXGroup;
 			children = (
-				DACE18C01741A0E3004294B9 /* Settings */,
 				DACE18B11741A078004294B9 /* TIConsentViewController.h */,
 				DACE18B21741A078004294B9 /* TIConsentViewController.m */,
 				DACE18B41741A095004294B9 /* TITaskViewController.h */,
 				DACE18B51741A095004294B9 /* TITaskViewController.mm */,
 				DACE18B71741A0B1004294B9 /* TIEndTaskViewController.h */,
 				DACE18B81741A0B1004294B9 /* TIEndTaskViewController.m */,
+			);
+			name = Task;
+			sourceTree = "<group>";
+		};
+		DACE18AF17419F8B004294B9 /* iPhone */ = {
+			isa = PBXGroup;
+			children = (
+				DA4A25AD1757787C00E6A2ED /* Task */,
+				DACE18C01741A0E3004294B9 /* Settings */,
 			);
 			name = iPhone;
 			sourceTree = "<group>";
@@ -272,15 +285,15 @@
 			name = Stk;
 			sourceTree = "<group>";
 		};
-		DACE18DC1741A945004294B9 /* Trial */ = {
+		DACE18DC1741A945004294B9 /* Example */ = {
 			isa = PBXGroup;
 			children = (
-				DAAFF74917552A1B0054DAE5 /* trial.csv */,
-				DA317134174DF5DC009C6AA7 /* trial01.wav */,
-				DA317135174DF5DC009C6AA7 /* trial02.wav */,
-				DA317136174DF5DC009C6AA7 /* trial03.wav */,
+				DAAFF74917552A1B0054DAE5 /* example.csv */,
+				DA317134174DF5DC009C6AA7 /* example01.wav */,
+				DA317135174DF5DC009C6AA7 /* example02.wav */,
+				DA317136174DF5DC009C6AA7 /* example03.wav */,
 			);
-			name = Trial;
+			name = Example;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -343,10 +356,10 @@
 				DA0C0967174177DA0023FC61 /* MainStoryboard_iPad.storyboard in Resources */,
 				DA317131174DEE8A009C6AA7 /* icon57.png in Resources */,
 				DA317133174DEE8D009C6AA7 /* icon114.png in Resources */,
-				DA317137174DF5DC009C6AA7 /* trial01.wav in Resources */,
-				DA317138174DF5DC009C6AA7 /* trial02.wav in Resources */,
-				DA317139174DF5DC009C6AA7 /* trial03.wav in Resources */,
-				DAAFF74A17552A1B0054DAE5 /* trial.csv in Resources */,
+				DA317137174DF5DC009C6AA7 /* example01.wav in Resources */,
+				DA317138174DF5DC009C6AA7 /* example02.wav in Resources */,
+				DA317139174DF5DC009C6AA7 /* example03.wav in Resources */,
+				DAAFF74A17552A1B0054DAE5 /* example.csv in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -373,6 +386,7 @@
 				DA31713C174DFA31009C6AA7 /* TITaskManager.m in Sources */,
 				DA317144174DFD23009C6AA7 /* CSVParser.m in Sources */,
 				DA9B155717516B1800E8B39C /* TIAudio.mm in Sources */,
+				DA4A25AC17576F9400E6A2ED /* TIFileManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

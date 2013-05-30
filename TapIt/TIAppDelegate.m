@@ -8,11 +8,26 @@
 
 #import "TIAppDelegate.h"
 
+#import "TIFileManager.h"
+
 @implementation TIAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    
+    // TODO: check if first launch
+    
+    // copy example files into documents directory
+    [TIFileManager copyResourceToDocument:@"example"
+                         ofType:@"csv"];
+    [TIFileManager copyResourceToDocument:@"example01"
+                                   ofType:@"wav"];
+    [TIFileManager copyResourceToDocument:@"example02"
+                                   ofType:@"wav"];
+    [TIFileManager copyResourceToDocument:@"example03"
+                                   ofType:@"wav"];
+    
     return YES;
 }
 							

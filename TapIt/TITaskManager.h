@@ -10,10 +10,6 @@
 
 @interface TITaskManager : NSObject
 
-+ (NSString *) documentsDirectory;
-+ (NSString*) createSessionId;
-+ (void) checkDirectoryPath:(NSString*)pathString;
-
 - (void) prepareSession;
 
 // Returns the audio filename for the current task
