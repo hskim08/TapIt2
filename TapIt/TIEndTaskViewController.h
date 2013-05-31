@@ -10,6 +10,8 @@
 
 @interface TIEndTaskViewController : UIViewController
 
+@property IBOutlet UITextView* textView;
+
 - (IBAction)tappedClose:(UIBarButtonItem*)sender;
 
 @end

@@ -10,6 +10,8 @@
 
 @interface TIConsentViewController : UIViewController
 
+@property IBOutlet UITextView* textView;
+
 - (IBAction)tappedSettings:(UIBarButtonItem*)sender;
 - (IBAction)tappedNext:(UIBarButtonItem*)sender;
 

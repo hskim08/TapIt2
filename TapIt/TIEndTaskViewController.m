@@ -26,14 +26,21 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+    
+    self.navigationItem.hidesBackButton = YES;
 }
 
-- (void)didReceiveMemoryWarning
+- (void)viewWillAppear:(BOOL)animated
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    // load text from defaults
+    NSString* text = [[NSUserDefaults standardUserDefaults] objectForKey:@"PostSession"];
+    self.textView.text = text;
 }
+
+//- (void)didReceiveMemoryWarning
+//{
+//    [super didReceiveMemoryWarning];
+//}
 
 #pragma mark - IBAction Selectors
 

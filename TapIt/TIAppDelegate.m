@@ -16,17 +16,37 @@
 {
     // Override point for customization after application launch.
     
-    // TODO: check if first launch
+    // check if it is the first launch
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
     
-    // copy example files into documents directory
-    [TIFileManager copyResourceToDocument:@"example"
-                         ofType:@"csv"];
-    [TIFileManager copyResourceToDocument:@"example01"
-                                   ofType:@"wav"];
-    [TIFileManager copyResourceToDocument:@"example02"
-                                   ofType:@"wav"];
-    [TIFileManager copyResourceToDocument:@"example03"
-                                   ofType:@"wav"];
+    if (![defaults boolForKey:@"Initialized"]) {
+        
+        // copy example files into documents directory
+        [TIFileManager copyResourceToDocument:@"example"
+                                       ofType:@"csv"];
+        [TIFileManager copyResourceToDocument:@"example01"
+                                       ofType:@"wav"];
+        [TIFileManager copyResourceToDocument:@"example02"
+                                       ofType:@"wav"];
+        [TIFileManager copyResourceToDocument:@"example03"
+                                       ofType:@"wav"];
+        
+        // set default settings values
+        NSString* preSessionString = @"In this study you will be asked to tap to the audio. Please use the entire area of the touchscreen for your taps.\n\nTap the play button to start a task. When the audio stops and you are finished tapping, tap the next button to continue.";
+        [defaults setObject:preSessionString
+                     forKey:@"PreSession"];
+        
+        NSString* postSessionString = @"Thank you for participating!";
+        [defaults setObject:postSessionString
+                     forKey:@"PostSession"];
+        
+        // raise initialized flag
+        [defaults setBool:YES
+                   forKey:@"Initialized"];
+        
+        // save defaults
+        [defaults synchronize];
+    }
     
     return YES;
 }
