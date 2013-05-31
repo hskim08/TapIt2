@@ -10,6 +10,12 @@
 
 @interface TISettingsViewController : UITableViewController
 
+@property IBOutlet UISwitch* randomizeSwitch;
+@property IBOutlet UISwitch* allowPauseSwitch;
+
 - (IBAction)tappedDone:(UIBarButtonItem*)sender;
+
+- (IBAction)randomizeChanged:(UISwitch*)sender;
+- (IBAction)allowPauseChanged:(UISwitch*)sender;
 
 @end

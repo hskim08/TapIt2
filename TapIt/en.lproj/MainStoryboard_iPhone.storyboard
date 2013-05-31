@@ -132,6 +132,9 @@
                                                 <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="zm9-s9-sau">
                                                     <rect key="frame" x="210" y="8" width="79" height="27"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                                    <connections>
+                                                        <action selector="randomizeChanged:" destination="Neb-74-ePy" eventType="valueChanged" id="e5H-b4-FPA"/>
+                                                    </connections>
                                                 </switch>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -154,6 +157,9 @@
                                                 <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="4JO-CJ-yHE">
                                                     <rect key="frame" x="210" y="8" width="79" height="27"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                                    <connections>
+                                                        <action selector="allowPauseChanged:" destination="Neb-74-ePy" eventType="valueChanged" id="aUG-Ic-FEk"/>
+                                                    </connections>
                                                 </switch>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -171,6 +177,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="allowPauseSwitch" destination="4JO-CJ-yHE" id="9wG-zC-wZZ"/>
+                        <outlet property="randomizeSwitch" destination="zm9-s9-sau" id="TIs-oe-bTt"/>
                         <segue destination="v4K-XK-EOx" kind="push" identifier="SettingsToTrackList" id="3FA-g4-egR"/>
                         <segue destination="Kgw-AI-INn" kind="push" id="l02-AK-YyL"/>
                     </connections>
@@ -553,7 +561,11 @@ Tap the play button to start a task. When the audio stops and you are finished t
         <class className="TISettingsViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/TISettingsViewController.h"/>
             <relationships>
+                <relationship kind="action" name="allowPauseChanged:" candidateClass="UISwitch"/>
+                <relationship kind="action" name="randomizeChanged:" candidateClass="UISwitch"/>
                 <relationship kind="action" name="tappedDone:" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="allowPauseSwitch" candidateClass="UISwitch"/>
+                <relationship kind="outlet" name="randomizeSwitch" candidateClass="UISwitch"/>
             </relationships>
         </class>
         <class className="TITaskViewController" superclassName="UIViewController">

@@ -40,6 +40,11 @@
         [defaults setObject:postSessionString
                      forKey:@"PostSession"];
         
+        [defaults setBool:YES
+                   forKey:@"Randomize"];
+        [defaults setBool:YES
+                   forKey:@"AllowPause"];
+        
         // raise initialized flag
         [defaults setBool:YES
                    forKey:@"Initialized"];
