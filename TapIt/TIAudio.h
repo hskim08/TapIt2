@@ -16,7 +16,7 @@
 #include "FileWvOut.h"
 
 #define SAMPLE_RATE 44100.0
-#define BUFFER_SIZE 256
+#define BUFFER_SIZE 512
 #define NUM_CHANNELS 2
 
 class TIAudio {

@@ -28,15 +28,9 @@
     [super viewDidLoad];
     
     // load saved data
-    NSString* text = [[NSUserDefaults standardUserDefaults] objectForKey:@"PostSession"];
+    NSString* text = [[NSUserDefaults standardUserDefaults] stringForKey:@"PostSession"];
     self.textView.text = text;
 }
-
-//- (void)didReceiveMemoryWarning
-//{
-//    [super didReceiveMemoryWarning];
-//    // Dispose of any resources that can be recreated.
-//}
 
 #pragma mark - IBActions Selectors
 

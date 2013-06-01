@@ -45,6 +45,9 @@
         [defaults setBool:YES
                    forKey:@"AllowPause"];
         
+        [defaults setBool:NO
+                   forKey:@"UseCue"];
+        
         // raise initialized flag
         [defaults setBool:YES
                    forKey:@"Initialized"];

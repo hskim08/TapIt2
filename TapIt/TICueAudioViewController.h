@@ -1,14 +1,14 @@
 //
-//  TITrackListViewController.h
+//  TICueAudioViewController.h
 //  TapIt
 //
-//  Created by Hyung-Suk Kim on 5/13/13.
+//  Created by Hyung-Suk Kim on 5/31/13.
 //  Copyright (c) 2013 Hyung-Suk Kim. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface TITrackListViewController : UITableViewController
+@interface TICueAudioViewController : UITableViewController
 
 - (IBAction)savePushed:(UIBarButtonItem*)sender;
 

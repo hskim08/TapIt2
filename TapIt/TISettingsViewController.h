@@ -10,11 +10,15 @@
 
 @interface TISettingsViewController : UITableViewController
 
+@property IBOutlet UISwitch* useCueSwitch;
+@property IBOutlet UILabel* cueDetailAudioLabel;
+
 @property IBOutlet UISwitch* randomizeSwitch;
 @property IBOutlet UISwitch* allowPauseSwitch;
 
 - (IBAction)tappedDone:(UIBarButtonItem*)sender;
 
+- (IBAction)useCueChanged:(UISwitch*)sender;
 - (IBAction)randomizeChanged:(UISwitch*)sender;
 - (IBAction)allowPauseChanged:(UISwitch*)sender;
 

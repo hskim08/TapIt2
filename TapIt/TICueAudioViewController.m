@@ -1,22 +1,23 @@
 //
-//  TITrackListViewController.m
+//  TICueAudioViewController.m
 //  TapIt
 //
-//  Created by Hyung-Suk Kim on 5/13/13.
+//  Created by Hyung-Suk Kim on 5/31/13.
 //  Copyright (c) 2013 Hyung-Suk Kim. All rights reserved.
 //
 
-#import "TITrackListViewController.h"
+#import "TICueAudioViewController.h"
 
 #import "TIFileManager.h"
 
-@interface TITrackListViewController ()
+@interface TICueAudioViewController ()
 
 @property NSArray* wavList;
+@property NSString* selectedFile;
 
 @end
 
-@implementation TITrackListViewController
+@implementation TICueAudioViewController
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -33,7 +34,15 @@
 
     self.clearsSelectionOnViewWillAppear = NO;
     self.wavList = [TIFileManager documentsWavFiles];
- 
+    
+    self.selectedFile = [[NSUserDefaults standardUserDefaults] stringForKey:@"CueAudio"];
+    if (self.selectedFile) {
+        NSUInteger selectedIndex = [self.wavList indexOfObject:self.selectedFile];
+        [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:selectedIndex
+                                                                inSection:0]
+                                    animated:NO
+                              scrollPosition:UITableViewScrollPositionNone];
+    }
 }
 
 //- (void)didReceiveMemoryWarning
@@ -56,10 +65,10 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
+    static NSString *CellIdentifier = @"CueTrackCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    // Configure the cell
+    // Configure the cell.
     cell.textLabel.text = [self.wavList objectAtIndex:indexPath.row];
     
     return cell;
@@ -108,13 +117,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+    [[NSUserDefaults standardUserDefaults] setObject:[self.wavList objectAtIndex:indexPath.row]
+                 forKey:@"CueAudio"];
 }
 
 #pragma mark - IBAction Selectors
@@ -127,6 +131,5 @@
     // dismiss view
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
-
 
 @end

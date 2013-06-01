@@ -28,22 +28,14 @@
     [super viewDidLoad];
     
     // load text from defaults
-    NSString* text = [[NSUserDefaults standardUserDefaults] objectForKey:@"PreSession"];
+    NSString* text = [[NSUserDefaults standardUserDefaults] stringForKey:@"PreSession"];
     self.textView.text = text;
 }
-
-//- (void)didReceiveMemoryWarning
-//{
-//    [super didReceiveMemoryWarning];
-//    // Dispose of any resources that can be recreated.
-//}
 
 #pragma mark - IBActions Selectors
 
 - (IBAction) savePushed:(UIBarButtonItem*)sender
 {
-    NSLog(@"Saving text: %@", self.textView.text);
-    
     // save text to defaults
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:self.textView.text

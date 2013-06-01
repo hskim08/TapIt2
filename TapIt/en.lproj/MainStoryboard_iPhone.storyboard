@@ -85,9 +85,12 @@
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
+                                        <connections>
+                                            <segue destination="v4K-XK-EOx" kind="push" id="tEf-6w-PmT"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="e4c-aw-hGd" detailTextLabel="JHJ-Xq-UJU" style="IBUITableViewCellStyleSubtitle" id="3CX-zX-0NK">
-                                        <rect key="frame" x="0.0" y="277" width="320" height="45"/>
+                                        <rect key="frame" x="0.0" y="277" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="10" y="0.0" width="280" height="43"/>
@@ -110,13 +113,41 @@
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
+                                        <connections>
+                                            <segue destination="Kgw-AI-INn" kind="push" id="vMN-pT-5vH"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="trQ-yM-bAH">
+                                        <rect key="frame" x="0.0" y="321" width="320" height="45"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="10" y="0.0" width="300" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Use Audio Cue" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Oio-qj-R3v">
+                                                    <rect key="frame" x="10" y="11" width="154" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                                <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="Fny-W6-0EO">
+                                                    <rect key="frame" x="210" y="8" width="79" height="27"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                                    <connections>
+                                                        <action selector="useCueChanged:" destination="Neb-74-ePy" eventType="valueChanged" id="w8W-KF-6p5"/>
+                                                    </connections>
+                                                </switch>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
                             <tableViewSection headerTitle="Session Settings" id="hCH-fx-1Ya">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="9mk-hm-wJD">
-                                        <rect key="frame" x="0.0" y="368" width="320" height="45"/>
+                                        <rect key="frame" x="0.0" y="412" width="320" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="10" y="1" width="300" height="43"/>
@@ -141,7 +172,7 @@
                                         </view>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="I58-CV-uiy">
-                                        <rect key="frame" x="0.0" y="413" width="320" height="45"/>
+                                        <rect key="frame" x="0.0" y="457" width="320" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="10" y="0.0" width="300" height="43"/>
@@ -167,6 +198,28 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
+                            <tableViewSection id="yRL-Q8-O1n">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="xWo-sI-2sk" style="IBUITableViewCellStyleDefault" id="DSj-7S-c0m">
+                                        <rect key="frame" x="0.0" y="522" width="320" height="46"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="10" y="1" width="300" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Export Session Data" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xWo-sI-2sk">
+                                                    <rect key="frame" x="10" y="0.0" width="280" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
                         </sections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Settings" id="AP4-LB-e3W">
@@ -178,9 +231,9 @@
                     </navigationItem>
                     <connections>
                         <outlet property="allowPauseSwitch" destination="4JO-CJ-yHE" id="9wG-zC-wZZ"/>
+                        <outlet property="cueDetailAudioLabel" destination="JHJ-Xq-UJU" id="x2S-ZX-8lb"/>
                         <outlet property="randomizeSwitch" destination="zm9-s9-sau" id="TIs-oe-bTt"/>
-                        <segue destination="v4K-XK-EOx" kind="push" identifier="SettingsToTrackList" id="3FA-g4-egR"/>
-                        <segue destination="Kgw-AI-INn" kind="push" id="l02-AK-YyL"/>
+                        <outlet property="useCueSwitch" destination="Fny-W6-0EO" id="kxy-zk-vb1"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ymF-3N-pkl" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -486,16 +539,16 @@ Tap the play button to start a task. When the audio stops and you are finished t
             </objects>
             <point key="canvasLocation" x="-1256" y="282"/>
         </scene>
-        <!--Table View Controller - Choose Cue Audio-->
+        <!--Cue Audio View Controller - Choose Cue Audio-->
         <scene sceneID="UfA-Oc-kf2">
             <objects>
-                <tableViewController id="Kgw-AI-INn" sceneMemberID="viewController">
+                <tableViewController id="Kgw-AI-INn" customClass="TICueAudioViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="7sk-ax-hPf">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TrackCell" textLabel="nnG-sf-yIf" style="IBUITableViewCellStyleDefault" id="f8K-oA-Gug">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CueTrackCell" textLabel="nnG-sf-yIf" style="IBUITableViewCellStyleDefault" id="f8K-oA-Gug">
                                 <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -520,7 +573,11 @@ Tap the play button to start a task. When the audio stops and you are finished t
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Choose Cue Audio" id="3ia-o6-wco">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="QHM-gf-eP5"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="QHM-gf-eP5">
+                            <connections>
+                                <action selector="savePushed:" destination="Kgw-AI-INn" id="t7c-hO-WLW"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="42e-SV-myY" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -535,6 +592,12 @@ Tap the play button to start a task. When the audio stops and you are finished t
                 <relationship kind="action" name="tappedNext:" candidateClass="UIBarButtonItem"/>
                 <relationship kind="action" name="tappedSettings:" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="textView" candidateClass="UITextView"/>
+            </relationships>
+        </class>
+        <class className="TICueAudioViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TICueAudioViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="savePushed:" candidateClass="UIBarButtonItem"/>
             </relationships>
         </class>
         <class className="TIEndTaskViewController" superclassName="UIViewController">
@@ -564,8 +627,11 @@ Tap the play button to start a task. When the audio stops and you are finished t
                 <relationship kind="action" name="allowPauseChanged:" candidateClass="UISwitch"/>
                 <relationship kind="action" name="randomizeChanged:" candidateClass="UISwitch"/>
                 <relationship kind="action" name="tappedDone:" candidateClass="UIBarButtonItem"/>
+                <relationship kind="action" name="useCueChanged:" candidateClass="UISwitch"/>
                 <relationship kind="outlet" name="allowPauseSwitch" candidateClass="UISwitch"/>
+                <relationship kind="outlet" name="cueDetailAudioLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="randomizeSwitch" candidateClass="UISwitch"/>
+                <relationship kind="outlet" name="useCueSwitch" candidateClass="UISwitch"/>
             </relationships>
         </class>
         <class className="TITaskViewController" superclassName="UIViewController">

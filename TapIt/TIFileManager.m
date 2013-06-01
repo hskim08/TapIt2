@@ -17,6 +17,24 @@
     return basePath;
 }
 
++ (NSArray*) documentsDirectoryFiles
+{
+    NSFileManager* fileManager = [NSFileManager defaultManager];
+    NSError* error;
+    NSArray* fileList = [fileManager contentsOfDirectoryAtPath:[TIFileManager documentsDirectory]
+                                                         error:&error];
+    
+    if (error)
+        NSLog(@"Failed to get list of files: %@", error.description);
+    
+    return fileList;
+}
+
++ (NSArray*) documentsWavFiles
+{
+    return [[TIFileManager documentsDirectoryFiles] filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self ENDSWITH '.wav'"]];
+}
+
 + (void) copyResourceToDocument:(NSString*)resource ofType:(NSString*)ext as:(NSString*)docFile overwrite:(BOOL)overwrite;
 {
     NSFileManager *fileManager = [NSFileManager defaultManager];
