@@ -187,7 +187,6 @@
     for (NSIndexPath* path in selectedRows) {
         
         [trackList addObject:[self.wavList objectAtIndex:path.row]];
-        NSLog(@"%@ (%d)", [self.wavList objectAtIndex:path.row], path.row);
     }
     
     

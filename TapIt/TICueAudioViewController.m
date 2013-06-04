@@ -8,12 +8,13 @@
 
 #import "TICueAudioViewController.h"
 
+#import "TIDefaults.h"
 #import "TIFileManager.h"
 
 @interface TICueAudioViewController ()
 
 @property NSArray* wavList;
-@property NSString* selectedFile;
+@property NSInteger selectedIndex;
 
 @end
 
@@ -35,14 +36,20 @@
     self.clearsSelectionOnViewWillAppear = NO;
     self.wavList = [TIFileManager documentsWavFiles];
     
-    self.selectedFile = [[NSUserDefaults standardUserDefaults] stringForKey:@"CueAudio"];
-    if (self.selectedFile) {
-        NSUInteger selectedIndex = [self.wavList indexOfObject:self.selectedFile];
-        [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:selectedIndex
+    NSString* selectedFile = [[NSUserDefaults standardUserDefaults] stringForKey:kTIDefaultsCueAudio];
+
+    if (selectedFile) {
+        
+        self.selectedIndex = [self.wavList indexOfObject:selectedFile];
+        
+        // select cell
+        [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:self.selectedIndex
                                                                 inSection:0]
                                     animated:NO
                               scrollPosition:UITableViewScrollPositionNone];
     }
+    else
+        self.selectedIndex = -1;
 }
 
 #pragma mark - Table view data source
@@ -64,61 +71,55 @@
     
     // Configure the cell.
     cell.textLabel.text = [self.wavList objectAtIndex:indexPath.row];
+//    if (indexPath.row == self.selectedIndex)
+//        cell.accessoryType = UITableViewCellAccessoryCheckmark;
     
     return cell;
 }
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
 
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [[NSUserDefaults standardUserDefaults] setObject:[self.wavList objectAtIndex:indexPath.row]
-                                              forKey:@"CueAudio"];
+    UITableViewCell* selectedCell = [self.tableView cellForRowAtIndexPath:indexPath];
+    
+    if (self.selectedIndex == indexPath.row) {
+        selectedCell.selected = NO;
+        self.selectedIndex = -1;
+    }
+    else {
+        self.selectedIndex = indexPath.row;
+    }
+    
+//    for (UITableViewCell* cell in [self.tableView visibleCells]) {
+//    
+//        if (cell == selectedCell) {
+//        
+//            if (cell.accessoryType == UITableViewCellAccessoryCheckmark) { // deselected
+//                self.selectedIndex = -1;
+//                cell.accessoryType = UITableViewCellAccessoryNone;
+//            }
+//            else { // selected
+//                self.selectedIndex = indexPath.row;
+//                cell.accessoryType = UITableViewCellAccessoryCheckmark;
+//            }
+//        }
+//        else // uncheck others
+//            cell.accessoryType = UITableViewCellAccessoryNone;
+//    }
 }
 
 #pragma mark - IBAction Selectors
 
 - (IBAction) savePushed:(UIBarButtonItem*)sender
 {
+    if (self.selectedIndex > -1)
+        [[NSUserDefaults standardUserDefaults] setObject:[self.wavList objectAtIndex:self.selectedIndex]
+                                                  forKey:kTIDefaultsCueAudio];
+    else
+        [[NSUserDefaults standardUserDefaults] setObject:nil
+                                                  forKey:kTIDefaultsCueAudio];
+    
     // save selected
     [[NSUserDefaults standardUserDefaults] synchronize];
     
