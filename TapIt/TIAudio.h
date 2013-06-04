@@ -29,6 +29,10 @@ public:
         return instance;
     }
     
+    void loadCueFile( std::string& audioFile );
+    void useCue(bool useCue) { _useCue = useCue; }
+    bool isUsingCue(){ return _useCue; }
+    
     void loadAudioFile( std::string& audioFile );
     void openRecordFile( std::string& audioFile );
     void closeFiles();
@@ -44,6 +48,9 @@ private:
     void initialize();
     
     bool _isInitialized;
+    
+    stk::FileWvIn _cueReader;
+    bool _useCue;
     
     stk::FileWvIn _waveReader;
     stk::FileWvOut _waveWriter;

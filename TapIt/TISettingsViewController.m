@@ -41,7 +41,10 @@
     self.audioFilesLabel.text = [NSString stringWithFormat:((trackListCount == 1) ? @"%d File Selected" : @"%d Files Selected"), trackListCount];
 
     NSString* cueAudio = [defaults stringForKey:kTIDefaultsCueAudio];
-    self.cueDetailAudioLabel.text = cueAudio ? cueAudio : @"None";
+    BOOL cueExists = cueAudio != nil;
+    self.cueDetailAudioLabel.text = cueExists ? cueAudio : @"None";
+    self.useCueSwitch.enabled = cueExists;
+    self.useCueLabel.enabled = cueExists;    
     self.useCueSwitch.on = [defaults boolForKey:kTIDefaultsUseCue];
     
     self.randomizeSwitch.on = [defaults boolForKey:kTIDefaultsRandomize];

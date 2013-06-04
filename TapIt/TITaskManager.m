@@ -105,15 +105,21 @@
     [self saveTrackOrder];
 }
 
+- (NSString*) getCueFilename
+{
+    NSString* filename = [[NSUserDefaults standardUserDefaults] stringForKey:kTIDefaultsCueAudio];
+    return [NSString stringWithFormat:@"%@/%@", [TIFileManager documentsDirectory], filename];
+}
+
 - (NSString*) getAudioFilename
 {
     // get audio file name
     NSNumber* n = [self.trackOrder objectAtIndex:self.currentTask]; // get actual track number
     NSUInteger idx = n.integerValue;
-    NSString* str = [self.trackList objectAtIndex:idx];
+    NSString* filename = [self.trackList objectAtIndex:idx];
     
     // create full path name
-    return [NSString stringWithFormat:@"%@/%@", [TIFileManager documentsDirectory], str];
+    return [NSString stringWithFormat:@"%@/%@", [TIFileManager documentsDirectory], filename];
 }
 
 - (NSString *)getOutputFilename

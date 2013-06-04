@@ -16,6 +16,8 @@
 @property NSArray* wavList;
 @property NSInteger selectedIndex;
 
+- (void) loadSelectedFromDefaults;
+
 @end
 
 @implementation TICueAudioViewController
@@ -36,20 +38,7 @@
     self.clearsSelectionOnViewWillAppear = NO;
     self.wavList = [TIFileManager documentsWavFiles];
     
-    NSString* selectedFile = [[NSUserDefaults standardUserDefaults] stringForKey:kTIDefaultsCueAudio];
-
-    if (selectedFile) {
-        
-        self.selectedIndex = [self.wavList indexOfObject:selectedFile];
-        
-        // select cell
-        [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:self.selectedIndex
-                                                                inSection:0]
-                                    animated:NO
-                              scrollPosition:UITableViewScrollPositionNone];
-    }
-    else
-        self.selectedIndex = -1;
+    [self loadSelectedFromDefaults];
 }
 
 #pragma mark - Table view data source
@@ -71,8 +60,6 @@
     
     // Configure the cell.
     cell.textLabel.text = [self.wavList objectAtIndex:indexPath.row];
-//    if (indexPath.row == self.selectedIndex)
-//        cell.accessoryType = UITableViewCellAccessoryCheckmark;
     
     return cell;
 }
@@ -84,47 +71,46 @@
     UITableViewCell* selectedCell = [self.tableView cellForRowAtIndexPath:indexPath];
     
     if (self.selectedIndex == indexPath.row) {
+        
         selectedCell.selected = NO;
         self.selectedIndex = -1;
     }
-    else {
+    else
         self.selectedIndex = indexPath.row;
-    }
-    
-//    for (UITableViewCell* cell in [self.tableView visibleCells]) {
-//    
-//        if (cell == selectedCell) {
-//        
-//            if (cell.accessoryType == UITableViewCellAccessoryCheckmark) { // deselected
-//                self.selectedIndex = -1;
-//                cell.accessoryType = UITableViewCellAccessoryNone;
-//            }
-//            else { // selected
-//                self.selectedIndex = indexPath.row;
-//                cell.accessoryType = UITableViewCellAccessoryCheckmark;
-//            }
-//        }
-//        else // uncheck others
-//            cell.accessoryType = UITableViewCellAccessoryNone;
-//    }
 }
 
 #pragma mark - IBAction Selectors
 
 - (IBAction) savePushed:(UIBarButtonItem*)sender
 {
-    if (self.selectedIndex > -1)
-        [[NSUserDefaults standardUserDefaults] setObject:[self.wavList objectAtIndex:self.selectedIndex]
-                                                  forKey:kTIDefaultsCueAudio];
-    else
-        [[NSUserDefaults standardUserDefaults] setObject:nil
-                                                  forKey:kTIDefaultsCueAudio];
-    
     // save selected
+    [[NSUserDefaults standardUserDefaults] setObject:(self.selectedIndex > -1) ? [self.wavList objectAtIndex:self.selectedIndex] : nil
+                                              forKey:kTIDefaultsCueAudio];
+    
     [[NSUserDefaults standardUserDefaults] synchronize];
     
     // dismiss view
     [self.navigationController popToRootViewControllerAnimated:YES];
+}
+
+#pragma mark - Private Selectors
+
+- (void) loadSelectedFromDefaults
+{
+    NSString* selectedFile = [[NSUserDefaults standardUserDefaults] stringForKey:kTIDefaultsCueAudio];
+    
+    if (selectedFile) {
+        
+        self.selectedIndex = [self.wavList indexOfObject:selectedFile];
+        
+        // select cell
+        [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:self.selectedIndex
+                                                                inSection:0]
+                                    animated:NO
+                              scrollPosition:UITableViewScrollPositionNone];
+    }
+    else
+        self.selectedIndex = -1;
 }
 
 @end

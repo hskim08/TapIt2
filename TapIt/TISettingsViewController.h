@@ -12,6 +12,7 @@
 
 @property IBOutlet UILabel* audioFilesLabel;
 @property IBOutlet UISwitch* useCueSwitch;
+@property IBOutlet UILabel* useCueLabel;
 @property IBOutlet UILabel* cueDetailAudioLabel;
 
 @property IBOutlet UISwitch* randomizeSwitch;

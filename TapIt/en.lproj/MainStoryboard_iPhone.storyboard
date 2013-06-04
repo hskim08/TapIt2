@@ -169,13 +169,13 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Control Settings" footerTitle="Enable/disable the control buttons during the task." id="hCH-fx-1Ya">
+                            <tableViewSection headerTitle="Control Settings" id="hCH-fx-1Ya">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="I58-CV-uiy">
-                                        <rect key="frame" x="0.0" y="437" width="320" height="45"/>
+                                        <rect key="frame" x="0.0" y="437" width="320" height="46"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="10" y="0.0" width="300" height="43"/>
+                                            <rect key="frame" x="10" y="1" width="300" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Allow Pause" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="RkE-Q2-LwN">
@@ -196,37 +196,12 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="fSX-TS-FJK">
-                                        <rect key="frame" x="0.0" y="482" width="320" height="45"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="10" y="0.0" width="300" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Allow Skip" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="FUb-2S-2aF">
-                                                    <rect key="frame" x="10" y="11" width="154" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                </label>
-                                                <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="GCr-Ui-6Mg">
-                                                    <rect key="frame" x="210" y="8" width="79" height="27"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
-                                                    <connections>
-                                                        <action selector="allowPauseChanged:" destination="Neb-74-ePy" eventType="valueChanged" id="SU4-Bi-Vfh"/>
-                                                    </connections>
-                                                </switch>
-                                            </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
-                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                             <tableViewSection id="yRL-Q8-O1n">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="xWo-sI-2sk" style="IBUITableViewCellStyleDefault" id="DSj-7S-c0m">
-                                        <rect key="frame" x="0.0" y="597" width="320" height="46"/>
+                                        <rect key="frame" x="0.0" y="503" width="320" height="46"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="10" y="1" width="300" height="43"/>
@@ -259,6 +234,7 @@
                         <outlet property="audioFilesLabel" destination="qGf-HF-vJW" id="Bgd-0p-N2L"/>
                         <outlet property="cueDetailAudioLabel" destination="JHJ-Xq-UJU" id="x2S-ZX-8lb"/>
                         <outlet property="randomizeSwitch" destination="zm9-s9-sau" id="TIs-oe-bTt"/>
+                        <outlet property="useCueLabel" destination="Oio-qj-R3v" id="xoY-oF-7YF"/>
                         <outlet property="useCueSwitch" destination="Fny-W6-0EO" id="kxy-zk-vb1"/>
                     </connections>
                 </tableViewController>
@@ -699,6 +675,7 @@ Tap the play button to start a task. When the audio stops and you are finished t
                 <relationship kind="outlet" name="audioFilesLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="cueDetailAudioLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="randomizeSwitch" candidateClass="UISwitch"/>
+                <relationship kind="outlet" name="useCueLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="useCueSwitch" candidateClass="UISwitch"/>
             </relationships>
         </class>

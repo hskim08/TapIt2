@@ -18,13 +18,18 @@ void audioCallback( Float32* buffer, UInt32 numFrames, void* data )
 TIAudio::TIAudio()
 :_isInitialized(false)
 ,_isPlaying(false)
+,_useCue(false)
 {
-    
 }
 
 TIAudio::~TIAudio()
 {
-    
+}
+
+void TIAudio::loadCueFile(std::string& audioFile)
+{
+//    NSLog(@"loading cue: %s", audioFile.c_str());
+    _cueReader.openFile(audioFile);
 }
 
 void TIAudio::loadAudioFile(std::string& audioFile)
@@ -43,6 +48,7 @@ void TIAudio::closeFiles()
 {
     _waveWriter.closeFile();
     _waveReader.closeFile();
+    _cueReader.closeFile();
 }
 
 void TIAudio::play()
@@ -89,13 +95,22 @@ void TIAudio::handleAudio(Float32* buffer, UInt32 numFrames)
     for (int i = 0; i < numFrames; i++) {
         
         if (_isPlaying) {
-            // write audio
-            _waveWriter.tick(buffer[2*i]);
             
-            // play audio file
-            _waveReader.tick();
-            buffer[2*i] = _waveReader.lastOut(0);
-            buffer[2*i + 1] = _waveReader.lastOut(1);
+            if (_useCue && !_cueReader.isFinished()) {
+                // play cue file
+                _cueReader.tick();
+                buffer[2*i] = _cueReader.lastOut(0);
+                buffer[2*i + 1] = _cueReader.lastOut(1);
+            }
+            else {
+                // write audio
+                _waveWriter.tick(buffer[2*i]);
+                
+                // play audio file
+                _waveReader.tick();
+                buffer[2*i] = _waveReader.lastOut(0);
+                buffer[2*i + 1] = _waveReader.lastOut(1);
+            }
         }
         else {
             

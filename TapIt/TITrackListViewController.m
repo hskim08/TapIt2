@@ -131,10 +131,8 @@
 
 - (IBAction) savePushed:(UIBarButtonItem*)sender
 {
-    // get selected row names
-    [self saveSelectedToDefaults];
-    
     // save selected
+    [self saveSelectedToDefaults];
     
     // dismiss view
     [self.navigationController popToRootViewControllerAnimated:YES];
@@ -142,22 +140,20 @@
 
 - (IBAction)selectAllPushed:(UIBarButtonItem*)sender
 {
-    for (int i = 0; i < self.wavList.count; i++) {
+    for (int i = 0; i < self.wavList.count; i++)
         [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:i
                                                                 inSection:0]
                                     animated:NO
                               scrollPosition:UITableViewScrollPositionNone];
-    }
 
 }
 
 - (IBAction)deselectAllPushed:(UIBarButtonItem*)sender
 {
-    for (int i = 0; i < self.wavList.count; i++) {
+    for (int i = 0; i < self.wavList.count; i++)
         [self.tableView deselectRowAtIndexPath:[NSIndexPath indexPathForRow:i
                                                                   inSection:0]
                                       animated:NO];
-    }
     
 }
 
@@ -166,6 +162,7 @@
 - (void) loadSelectedFromDefaults
 {
     NSArray* trackList = [[NSUserDefaults standardUserDefaults] arrayForKey:kTIDefaultsTrackList];
+    
     for (NSString* filename in trackList) {
         
         NSUInteger idx = [self.wavList indexOfObject:filename];
@@ -184,11 +181,8 @@
     NSArray* selectedRows = [self.tableView indexPathsForSelectedRows];
     NSMutableArray* trackList = [NSMutableArray arrayWithCapacity:selectedRows.count];
     
-    for (NSIndexPath* path in selectedRows) {
-        
+    for (NSIndexPath* path in selectedRows)
         [trackList addObject:[self.wavList objectAtIndex:path.row]];
-    }
-    
     
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:trackList

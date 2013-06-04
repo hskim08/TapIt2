@@ -8,6 +8,7 @@
 
 #import "TITaskViewController.h"
 
+#import "TIDefaults.h"
 #import "TITaskManager.h"
 
 #import "TIAudio.h"
@@ -156,6 +157,18 @@
     NSString* outputFilename = [self.taskManager getOutputFilename];
     std::string outputFile([outputFilename UTF8String]);
     TIAudio::getInstance().openRecordFile(outputFile);
+    
+    // load/reload cue file
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    if ([defaults stringForKey:kTIDefaultsCueAudio] && [defaults boolForKey:kTIDefaultsUseCue]) {
+        TIAudio::getInstance().useCue(true);
+        
+        NSString* cueFilename = [self.taskManager getCueFilename];
+        std::string cueFile([cueFilename UTF8String]);
+        TIAudio::getInstance().loadCueFile(cueFile);
+    }
+    else
+        TIAudio::getInstance().useCue(false);
     
     // reset data string
     self.tapData = [NSMutableString stringWithCapacity:1];

@@ -13,6 +13,7 @@
 - (void) prepareSession;
 
 // Returns the audio filename for the current task
+- (NSString*) getCueFilename;
 - (NSString*) getAudioFilename;
 - (NSString*) getOutputFilename;
 
