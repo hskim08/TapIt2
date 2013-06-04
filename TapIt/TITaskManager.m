@@ -8,17 +8,23 @@
 
 #import "TITaskManager.h"
 
+#import "TIDefaults.h"
 #import "TIFileManager.h"
 
 @interface TITaskManager()
 
 + (NSString*) createSessionId;
++ (NSArray*) trackOrderWithLength:(NSUInteger)length randomize:(BOOL)randomize;
++ (void) saveList:(NSArray*)list asCsvWithTitle:(NSString*)title toPath:(NSString*)path;
 
 @property NSString* sessionPath;
 @property NSArray* trackList;
+@property NSArray* trackOrder;
 
-- (void) loadTaskFromDefaults;
+- (NSArray*) loadTaskFromDefaults;
+
 - (void) saveTrackList;
+- (void) saveTrackOrder;
 
 @end
 
@@ -36,6 +42,42 @@
     return dateString;
 }
 
++ (NSArray*) trackOrderWithLength:(NSUInteger)length randomize:(BOOL)randomize
+{
+    NSMutableArray* temp = [NSMutableArray arrayWithCapacity:0];
+    
+    for (int i = 0; i < length; i++)
+        [temp addObject:[NSNumber numberWithInt:i]];
+    
+    if (!randomize) // return linear list
+        return temp;
+    
+    // randomize using Knuth shuffle
+    NSMutableArray* perm = [NSMutableArray arrayWithCapacity:0];
+    while (temp.count > 0) {
+        int idx = arc4random() % temp.count;
+        
+        [perm addObject:[temp objectAtIndex:idx]];
+        [temp removeObjectAtIndex:idx];
+    }
+    return perm;
+}
+
++ (void) saveList:(NSArray*)list asCsvWithTitle:(NSString*)title toPath:(NSString*)path
+{
+    NSString* string = [list componentsJoinedByString:@", "];
+    
+    NSError* error;
+    [string writeToFile:[NSString stringWithFormat:@"%@/%@.csv", path, title]
+             atomically:YES
+               encoding:NSUTF8StringEncoding
+                  error:&error];
+    
+    if (error)
+        NSLog(@"Failed to write tracklist: %@", error.description);
+    
+}
+
 #pragma mark - Public Selectors
 
 - (void) prepareSession
@@ -48,26 +90,35 @@
     [TIFileManager checkDirectoryPath:self.sessionPath];
     
     // load from saved defaults
-    [self loadTaskFromDefaults];
+    self.currentTask = 0;
+    self.trackList = [self loadTaskFromDefaults];
     
-    // TODO: create trackList.csv and save to session folder
+    // create trackList.csv and save to session folder
     [self saveTrackList];
     
-    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"Randomize"]) {
-        // TODO: create random order and save track list order
-    }
+    // create track order
+    BOOL randomize = [[NSUserDefaults standardUserDefaults] boolForKey:kTIDefaultsRandomize];
+    self.trackOrder = [TITaskManager trackOrderWithLength:self.trackList.count
+                                        randomize:randomize];
+    
+    // save track list order
+    [self saveTrackOrder];
 }
 
 - (NSString*) getAudioFilename
 {
+    // get audio file name
+    NSNumber* n = [self.trackOrder objectAtIndex:self.currentTask]; // get actual track number
+    NSUInteger idx = n.integerValue;
+    NSString* str = [self.trackList objectAtIndex:idx];
+    
     // create full path name
-    NSString* str = [self.trackList objectAtIndex:self.currentTask];
     return [NSString stringWithFormat:@"%@/%@", [TIFileManager documentsDirectory], str];
 }
 
 - (NSString *)getOutputFilename
 {
-    return [NSString stringWithFormat:@"%@/%03d.wav", self.sessionPath, self.currentTask];
+    return [NSString stringWithFormat:@"%@/%03d.wav", self.sessionPath, (self.currentTask+1)];
 }
 
 - (NSString*) nextTask
@@ -108,25 +159,23 @@
 
 #pragma mark - Private Implementation
 
-- (void) loadTaskFromDefaults
+- (NSArray*) loadTaskFromDefaults
 {
-    self.currentTask = 0;
-    self.trackList = [[NSUserDefaults standardUserDefaults] arrayForKey:@"TrackList"];
-    NSLog(@"Task Count: %d", self.trackList.count);
+    return [[NSUserDefaults standardUserDefaults] arrayForKey:@"TrackList"];
 }
 
 - (void) saveTrackList
 {
-    NSString* string = [self.trackList componentsJoinedByString:@", "];
+    [TITaskManager saveList:self.trackList
+         asCsvWithTitle:@"TrackList"
+            toPath:self.sessionPath];
+}
 
-    NSError* error;
-    [string writeToFile:[NSString stringWithFormat:@"%@/trackList.csv", self.sessionPath]
-             atomically:YES
-               encoding:NSUTF8StringEncoding
-                  error:&error];
-    
-    if (error)
-        NSLog(@"Failed to write tracklist: %@", error.description);
+- (void) saveTrackOrder
+{
+    [TITaskManager saveList:self.trackOrder
+         asCsvWithTitle:@"TrackOrder"
+            toPath:self.sessionPath];
 }
 
 @end

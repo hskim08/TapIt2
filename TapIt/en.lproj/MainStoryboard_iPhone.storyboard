@@ -429,7 +429,7 @@ Tap the play button to start a task. When the audio stops and you are finished t
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gvp-l9-eIM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-179" y="-2589"/>
+            <point key="canvasLocation" x="221" y="-1917"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Fn7-bY-Qfh">

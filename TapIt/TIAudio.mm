@@ -29,13 +29,13 @@ TIAudio::~TIAudio()
 
 void TIAudio::loadAudioFile(std::string& audioFile)
 {
-    NSLog(@"loading audio: %s", audioFile.c_str());
+//    NSLog(@"loading audio: %s", audioFile.c_str());
     _waveReader.openFile(audioFile);
 }
 
 void TIAudio::openRecordFile( std::string& audioFile )
 {
-    NSLog(@"loading audio: %s", audioFile.c_str());
+//    NSLog(@"loading audio: %s", audioFile.c_str());
     _waveWriter.openFile(audioFile, 2, stk::FileWrite::FILE_WAV, stk::Stk::STK_SINT16);
 }
 
@@ -96,7 +96,6 @@ void TIAudio::handleAudio(Float32* buffer, UInt32 numFrames)
             _waveReader.tick();
             buffer[2*i] = _waveReader.lastOut(0);
             buffer[2*i + 1] = _waveReader.lastOut(1);
-
         }
         else {
             
