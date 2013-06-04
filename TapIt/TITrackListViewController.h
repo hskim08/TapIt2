@@ -12,4 +12,7 @@
 
 - (IBAction)savePushed:(UIBarButtonItem*)sender;
 
+- (IBAction)selectAllPushed:(UIBarButtonItem*)sender;
+- (IBAction)deselectAllPushed:(UIBarButtonItem*)sender;
+
 @end

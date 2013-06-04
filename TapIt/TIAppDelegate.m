@@ -8,6 +8,7 @@
 
 #import "TIAppDelegate.h"
 
+#import "TIDefaults.h"
 #import "TIFileManager.h"
 
 @implementation TIAppDelegate
@@ -19,11 +20,9 @@
     // check if it is the first launch
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
     
-    if (![defaults boolForKey:@"Initialized"]) {
+    if (![defaults boolForKey:kTIDefaultsInitialized]) {
         
         // copy example files into documents directory
-        [TIFileManager copyResourceToDocument:@"example"
-                                       ofType:@"csv"];
         [TIFileManager copyResourceToDocument:@"example01"
                                        ofType:@"wav"];
         [TIFileManager copyResourceToDocument:@"example02"
@@ -31,26 +30,36 @@
         [TIFileManager copyResourceToDocument:@"example03"
                                        ofType:@"wav"];
         
-        // set default settings values
+        // set default settings values //
+
+        // instructions
         NSString* preSessionString = @"In this study you will be asked to tap to the audio. Please use the entire area of the touchscreen for your taps.\n\nTap the play button to start a task. When the audio stops and you are finished tapping, tap the next button to continue.";
         [defaults setObject:preSessionString
-                     forKey:@"PreSession"];
+                     forKey:kTIDefaultsPreSession];
         
         NSString* postSessionString = @"Thank you for participating!";
         [defaults setObject:postSessionString
-                     forKey:@"PostSession"];
+                     forKey:kTIDefaultsPostSession];
         
-        [defaults setBool:YES
-                   forKey:@"Randomize"];
-        [defaults setBool:YES
-                   forKey:@"AllowPause"];
+        // audio files settings
+        NSMutableArray* trackList = [NSMutableArray arrayWithCapacity:3];
+        [trackList addObject:@"example01.wav"];
+        [trackList addObject:@"example03.wav"];
+        [defaults setObject:trackList
+                     forKey:kTIDefaultsTrackList];
         
         [defaults setBool:NO
-                   forKey:@"UseCue"];
+                   forKey:kTIDefaultsUseCue];
+        
+        // other settings
+        [defaults setBool:NO
+                   forKey:kTIDefaultsRandomize];
+        [defaults setBool:YES
+                   forKey:kTIDefaultsAllowPause];
         
         // raise initialized flag
         [defaults setBool:YES
-                   forKey:@"Initialized"];
+                   forKey:kTIDefaultsInitialized];
         
         // save defaults
         [defaults synchronize];

@@ -8,11 +8,15 @@
 
 #import "TITrackListViewController.h"
 
+#import "TIDefaults.h"
 #import "TIFileManager.h"
 
 @interface TITrackListViewController ()
 
 @property NSArray* wavList;
+
+- (void) loadSelectedFromDefaults;
+- (void) saveSelectedToDefaults;
 
 @end
 
@@ -34,6 +38,7 @@
     self.clearsSelectionOnViewWillAppear = NO;
     self.wavList = [TIFileManager documentsWavFiles];
  
+    [self loadSelectedFromDefaults];
 }
 
 //- (void)didReceiveMemoryWarning
@@ -56,13 +61,18 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
+    static NSString *CellIdentifier = @"TrackListCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     // Configure the cell
     cell.textLabel.text = [self.wavList objectAtIndex:indexPath.row];
     
     return cell;
+}
+
+- (NSString*)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    return @"Audio Files";
 }
 
 /*
@@ -121,12 +131,71 @@
 
 - (IBAction) savePushed:(UIBarButtonItem*)sender
 {
+    // get selected row names
+    [self saveSelectedToDefaults];
+    
     // save selected
-    [[NSUserDefaults standardUserDefaults] synchronize];
     
     // dismiss view
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
+- (IBAction)selectAllPushed:(UIBarButtonItem*)sender
+{
+    for (int i = 0; i < self.wavList.count; i++) {
+        [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:i
+                                                                inSection:0]
+                                    animated:NO
+                              scrollPosition:UITableViewScrollPositionNone];
+    }
+
+}
+
+- (IBAction)deselectAllPushed:(UIBarButtonItem*)sender
+{
+    for (int i = 0; i < self.wavList.count; i++) {
+        [self.tableView deselectRowAtIndexPath:[NSIndexPath indexPathForRow:i
+                                                                  inSection:0]
+                                      animated:NO];
+    }
+    
+}
+
+#pragma mark - Private Selectors
+
+- (void) loadSelectedFromDefaults
+{
+    NSArray* trackList = [[NSUserDefaults standardUserDefaults] arrayForKey:kTIDefaultsTrackList];
+    for (NSString* filename in trackList) {
+        
+        NSUInteger idx = [self.wavList indexOfObject:filename];
+
+        if (idx != NSNotFound) {
+            [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:idx
+                                                                    inSection:0]
+                                        animated:NO
+                                  scrollPosition:UITableViewScrollPositionNone];
+        }
+    }
+}
+
+- (void) saveSelectedToDefaults
+{
+    NSArray* selectedRows = [self.tableView indexPathsForSelectedRows];
+    NSMutableArray* trackList = [NSMutableArray arrayWithCapacity:selectedRows.count];
+    
+    for (NSIndexPath* path in selectedRows) {
+        
+        [trackList addObject:[self.wavList objectAtIndex:path.row]];
+        NSLog(@"%@ (%d)", [self.wavList objectAtIndex:path.row], path.row);
+    }
+    
+    
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:trackList
+                 forKey:kTIDefaultsTrackList];
+    
+    [defaults synchronize];
+}
 
 @end

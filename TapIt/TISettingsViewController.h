@@ -10,6 +10,7 @@
 
 @interface TISettingsViewController : UITableViewController
 
+@property IBOutlet UILabel* audioFilesLabel;
 @property IBOutlet UISwitch* useCueSwitch;
 @property IBOutlet UILabel* cueDetailAudioLabel;
 

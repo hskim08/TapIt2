@@ -37,11 +37,6 @@
     self.textView.text = text;
 }
 
-//- (void)didReceiveMemoryWarning
-//{
-//    [super didReceiveMemoryWarning];
-//}
-
 #pragma mark - IBAction Selectors
 
 - (IBAction)tappedClose:(UIBarButtonItem*)sender

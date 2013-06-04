@@ -45,12 +45,6 @@
     }
 }
 
-//- (void)didReceiveMemoryWarning
-//{
-//    [super didReceiveMemoryWarning];
-//    // Dispose of any resources that can be recreated.
-//}
-
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -118,7 +112,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [[NSUserDefaults standardUserDefaults] setObject:[self.wavList objectAtIndex:indexPath.row]
-                 forKey:@"CueAudio"];
+                                              forKey:@"CueAudio"];
 }
 
 #pragma mark - IBAction Selectors

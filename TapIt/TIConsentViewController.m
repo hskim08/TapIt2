@@ -8,6 +8,8 @@
 
 #import "TIConsentViewController.h"
 
+#import "TIDefaults.h"
+
 @interface TIConsentViewController ()
 
 @end
@@ -48,8 +50,21 @@
 
 - (IBAction)tappedNext:(UIBarButtonItem*)sender
 {
-    [self performSegueWithIdentifier:@"ConsentToTask"
-                              sender:self];
+    if ([[NSUserDefaults standardUserDefaults] arrayForKey:kTIDefaultsTrackList].count > 0) {
+        
+        [self performSegueWithIdentifier:@"ConsentToTask"
+                                  sender:self];
+    }
+    else {
+        [[[UIAlertView alloc] initWithTitle:@"Empty Track List"
+                                    message:@"There are no tracks in the track list. Add audio files in the Settings Menu."
+                                   delegate:nil
+                          cancelButtonTitle:@"Close"
+                          otherButtonTitles:nil, nil]
+         show];
+    }
+    
+
 }
 
 @end

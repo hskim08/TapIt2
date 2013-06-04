@@ -47,11 +47,6 @@
     [self prepareTask];
 }
 
-//- (void)didReceiveMemoryWarning
-//{
-//    [super didReceiveMemoryWarning];
-//}
-
 #pragma mark - UIView override
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event

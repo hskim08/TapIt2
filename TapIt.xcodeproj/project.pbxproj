@@ -29,7 +29,6 @@
 		DA317144174DFD23009C6AA7 /* CSVParser.m in Sources */ = {isa = PBXBuildFile; fileRef = DA317143174DFD23009C6AA7 /* CSVParser.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		DA4A25AC17576F9400E6A2ED /* TIFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DA4A25AB17576F9400E6A2ED /* TIFileManager.m */; };
 		DA9B155717516B1800E8B39C /* TIAudio.mm in Sources */ = {isa = PBXBuildFile; fileRef = DA9B155617516B1800E8B39C /* TIAudio.mm */; };
-		DAAFF74A17552A1B0054DAE5 /* example.csv in Resources */ = {isa = PBXBuildFile; fileRef = DAAFF74917552A1B0054DAE5 /* example.csv */; };
 		DAC9BF201759713E003204DF /* TICueAudioViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC9BF1F1759713E003204DF /* TICueAudioViewController.m */; };
 		DACE18B31741A078004294B9 /* TIConsentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DACE18B21741A078004294B9 /* TIConsentViewController.m */; };
 		DACE18B61741A095004294B9 /* TITaskViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = DACE18B51741A095004294B9 /* TITaskViewController.mm */; };
@@ -78,7 +77,7 @@
 		DA4A25AB17576F9400E6A2ED /* TIFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TIFileManager.m; sourceTree = "<group>"; };
 		DA9B155517516B1800E8B39C /* TIAudio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TIAudio.h; sourceTree = "<group>"; };
 		DA9B155617516B1800E8B39C /* TIAudio.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TIAudio.mm; sourceTree = "<group>"; };
-		DAAFF74917552A1B0054DAE5 /* example.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = example.csv; path = Trial/example.csv; sourceTree = SOURCE_ROOT; };
+		DAC22B61175D472B00AA6E4E /* TIDefaults.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TIDefaults.h; sourceTree = "<group>"; };
 		DAC9BF1E1759713E003204DF /* TICueAudioViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TICueAudioViewController.h; sourceTree = "<group>"; };
 		DAC9BF1F1759713E003204DF /* TICueAudioViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TICueAudioViewController.m; sourceTree = "<group>"; };
 		DACE18B11741A078004294B9 /* TIConsentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TIConsentViewController.h; sourceTree = "<group>"; };
@@ -155,16 +154,14 @@
 		DA0C0950174177DA0023FC61 /* TapIt */ = {
 			isa = PBXGroup;
 			children = (
-				DACE18C21741A68B004294B9 /* Ext */,
+				DAC22B62175D495400AA6E4E /* Task */,
 				DACE18C11741A67F004294B9 /* Audio */,
 				DACE18B01741A01D004294B9 /* iPad */,
 				DACE18AF17419F8B004294B9 /* iPhone */,
 				DA0C0959174177DA0023FC61 /* TIAppDelegate.h */,
 				DA0C095A174177DA0023FC61 /* TIAppDelegate.m */,
-				DA31713A174DFA31009C6AA7 /* TITaskManager.h */,
-				DA31713B174DFA31009C6AA7 /* TITaskManager.m */,
-				DA4A25AA17576F9400E6A2ED /* TIFileManager.h */,
-				DA4A25AB17576F9400E6A2ED /* TIFileManager.m */,
+				DAC22B61175D472B00AA6E4E /* TIDefaults.h */,
+				DACE18C21741A68B004294B9 /* Ext */,
 				DACE18DC1741A945004294B9 /* Example */,
 				DA0C0970174178770023FC61 /* Resources */,
 				DA0C0951174177DA0023FC61 /* Supporting Files */,
@@ -215,6 +212,17 @@
 				DACE18B51741A095004294B9 /* TITaskViewController.mm */,
 				DACE18B71741A0B1004294B9 /* TIEndTaskViewController.h */,
 				DACE18B81741A0B1004294B9 /* TIEndTaskViewController.m */,
+			);
+			name = Task;
+			sourceTree = "<group>";
+		};
+		DAC22B62175D495400AA6E4E /* Task */ = {
+			isa = PBXGroup;
+			children = (
+				DA31713A174DFA31009C6AA7 /* TITaskManager.h */,
+				DA31713B174DFA31009C6AA7 /* TITaskManager.m */,
+				DA4A25AA17576F9400E6A2ED /* TIFileManager.h */,
+				DA4A25AB17576F9400E6A2ED /* TIFileManager.m */,
 			);
 			name = Task;
 			sourceTree = "<group>";
@@ -303,7 +311,6 @@
 		DACE18DC1741A945004294B9 /* Example */ = {
 			isa = PBXGroup;
 			children = (
-				DAAFF74917552A1B0054DAE5 /* example.csv */,
 				DA317134174DF5DC009C6AA7 /* example01.wav */,
 				DA317135174DF5DC009C6AA7 /* example02.wav */,
 				DA317136174DF5DC009C6AA7 /* example03.wav */,
@@ -374,7 +381,6 @@
 				DA317137174DF5DC009C6AA7 /* example01.wav in Resources */,
 				DA317138174DF5DC009C6AA7 /* example02.wav in Resources */,
 				DA317139174DF5DC009C6AA7 /* example03.wav in Resources */,
-				DAAFF74A17552A1B0054DAE5 /* example.csv in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,6 +8,8 @@
 
 #import "TISettingsViewController.h"
 
+#import "TIDefaults.h"
+
 @interface TISettingsViewController ()
 
 @end
@@ -35,11 +37,15 @@
     // load settings
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
 
-    self.useCueSwitch.on = [defaults boolForKey:@"UseCue"];
-    self.cueDetailAudioLabel.text = [defaults stringForKey:@"CueAudio"] ? [defaults stringForKey:@"CueAudio"] : @"None";
+    NSUInteger trackListCount = [defaults arrayForKey:kTIDefaultsTrackList].count;
+    self.audioFilesLabel.text = [NSString stringWithFormat:((trackListCount == 1) ? @"%d File Selected" : @"%d Files Selected"), trackListCount];
+
+    NSString* cueAudio = [defaults stringForKey:kTIDefaultsCueAudio];
+    self.cueDetailAudioLabel.text = cueAudio ? cueAudio : @"None";
+    self.useCueSwitch.on = [defaults boolForKey:kTIDefaultsUseCue];
     
-    self.randomizeSwitch.on = [defaults boolForKey:@"Randomize"];
-    self.allowPauseSwitch.on = [defaults boolForKey:@"AllowPause"];
+    self.randomizeSwitch.on = [defaults boolForKey:kTIDefaultsRandomize];
+    self.allowPauseSwitch.on = [defaults boolForKey:kTIDefaultsAllowPause];
 }
 
 //#pragma mark - Table view delegate

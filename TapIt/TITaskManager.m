@@ -10,25 +10,15 @@
 
 #import "TIFileManager.h"
 
-#import "CSVParser.h"
-
 @interface TITaskManager()
 
 + (NSString*) createSessionId;
 
-@property CSVParser* csvParser;
-
-- (CSVParser*) parserWithUrl:(NSURL*)url;
-- (CSVParser*) parserWithPath:(NSString*)path;
-- (CSVParser*) parseCsvString:(NSString*)csvString;
-
 @property NSString* sessionPath;
+@property NSArray* trackList;
 
-// loads the task data from task file
-- (void) loadTaskfile:(NSString*)taskFile;
-
-// returns the filename for task
-- (NSString*) filenameOf:(NSInteger)taskNo;
+- (void) loadTaskFromDefaults;
+- (void) saveTrackList;
 
 @end
 
@@ -48,37 +38,30 @@
 
 #pragma mark - Public Selectors
 
-- (void) loadTaskfile:(NSString*)taskFile
-{
-    NSLog(@"Task file: %@", taskFile);
-    
-    self.csvParser = [self parserWithPath:taskFile];
-    self.currentTask = 0;
-    
-    NSArray* ar = [self.csvParser arrayOfParsedRows];
-    NSLog(@"Task Count: %d", ar.count);
-}
-
 - (void) prepareSession
 {
     // create session id
     self.sessionId = [TITaskManager createSessionId];
-    
-    // TODO: load task data from current task.csv file
-    [self loadTaskfile:[NSString stringWithFormat:@"%@/%@", [TIFileManager documentsDirectory], @"example.csv"]];
-    
+
     // create session folder
     self.sessionPath = [NSString stringWithFormat:@"%@/%@", [TIFileManager documentsDirectory], self.sessionId];
     [TIFileManager checkDirectoryPath:self.sessionPath];
     
-    // TODO: if randomized save track list order
+    // load from saved defaults
+    [self loadTaskFromDefaults];
+    
+    // TODO: create trackList.csv and save to session folder
+    [self saveTrackList];
+    
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"Randomize"]) {
+        // TODO: create random order and save track list order
+    }
 }
 
 - (NSString*) getAudioFilename
 {
     // create full path name
-    NSString* str = [self filenameOf:self.currentTask];
-    
+    NSString* str = [self.trackList objectAtIndex:self.currentTask];
     return [NSString stringWithFormat:@"%@/%@", [TIFileManager documentsDirectory], str];
 }
 
@@ -86,7 +69,6 @@
 {
     return [NSString stringWithFormat:@"%@/%03d.wav", self.sessionPath, self.currentTask];
 }
-
 
 - (NSString*) nextTask
 {
@@ -107,7 +89,7 @@
 @synthesize taskCount;
 - (NSInteger) taskCount
 {
-    return [self.csvParser arrayOfParsedRows].count;
+    return self.trackList.count;
 }
 
 - (void) saveTapData:(NSString*)tapData
@@ -126,54 +108,25 @@
 
 #pragma mark - Private Implementation
 
-- (CSVParser*) parserWithUrl:(NSURL*)url
+- (void) loadTaskFromDefaults
 {
+    self.currentTask = 0;
+    self.trackList = [[NSUserDefaults standardUserDefaults] arrayForKey:@"TrackList"];
+    NSLog(@"Task Count: %d", self.trackList.count);
+}
+
+- (void) saveTrackList
+{
+    NSString* string = [self.trackList componentsJoinedByString:@", "];
+
     NSError* error;
-    NSString* csvString = [NSString stringWithContentsOfURL:url
-                                                   encoding:NSASCIIStringEncoding
-                                                      error:&error];
+    [string writeToFile:[NSString stringWithFormat:@"%@/trackList.csv", self.sessionPath]
+             atomically:YES
+               encoding:NSUTF8StringEncoding
+                  error:&error];
     
-    if (error) {
-        
-        NSLog(@"%@", [error description]);
-        return nil;
-    }
-    
-    return [self parseCsvString:csvString];
-}
-
-- (CSVParser*) parserWithPath:(NSString*)path
-{
-    NSError* error;
-    NSString* csvString = [NSString stringWithContentsOfFile:path
-                                                   encoding:NSASCIIStringEncoding
-                                                      error:&error];
-    
-    if (error) {
-        
-        NSLog(@"%@", [error description]);
-        return nil;
-    }
-    
-    return [self parseCsvString:csvString];
-
-}
-
-- (CSVParser*) parseCsvString:(NSString*)csvString
-{
-    NSArray* keyArray = @[@"Filename"];
-    
-    return [[CSVParser alloc] initWithString:csvString
-                                   separator:@","
-                                   hasHeader:NO
-                                  fieldNames:keyArray
-            ];
-}
-
-- (NSString*) filenameOf:(NSInteger)taskNo
-{
-    NSDictionary* taskData = [[self.csvParser arrayOfParsedRows] objectAtIndex:taskNo];
-    return [taskData objectForKey:@"Filename"];
+    if (error)
+        NSLog(@"Failed to write tracklist: %@", error.description);
 }
 
 @end

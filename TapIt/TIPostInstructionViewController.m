@@ -36,8 +36,6 @@
 
 - (IBAction) savePushed:(UIBarButtonItem*)sender
 {
-    NSLog(@"Saving text: %@", self.textView.text);
-    
     // save text to defaults
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:self.textView.text
