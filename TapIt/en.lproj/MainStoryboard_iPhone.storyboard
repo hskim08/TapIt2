@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12D78" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="GbJ-sq-7AZ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="GbJ-sq-7AZ">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -349,6 +349,18 @@ Tap the play button to start a task. When the audio stops and you are finished t
                                 </attributedString>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="blackTranslucent" id="0Wy-sM-dbi">
+                                <rect key="frame" x="0.0" y="460" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="v58-Zy-8he"/>
+                                    <barButtonItem systemItem="done" id="nQj-8M-I9q">
+                                        <connections>
+                                            <action selector="donePushed:" destination="oTY-bJ-Jmd" id="aPR-u8-4AP"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" name="secondarySelectedControlColor" catalog="System" colorSpace="catalog"/>
                     </view>
@@ -361,6 +373,7 @@ Tap the play button to start a task. When the audio stops and you are finished t
                     </navigationItem>
                     <connections>
                         <outlet property="textView" destination="M8K-cK-V2K" id="YO0-3p-ewF"/>
+                        <outlet property="toolBar" destination="0Wy-sM-dbi" id="qf6-fK-H56"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LIF-Nx-Njv" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -389,6 +402,18 @@ Tap the play button to start a task. When the audio stops and you are finished t
                                 </attributedString>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="blackTranslucent" id="iaU-8E-go9">
+                                <rect key="frame" x="0.0" y="460" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="jNZ-f2-hJw"/>
+                                    <barButtonItem systemItem="done" id="pbA-r8-iBI">
+                                        <connections>
+                                            <action selector="donePushed:" destination="V6e-wq-Boy" id="2hT-Rc-vbc"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                     </view>
@@ -401,6 +426,7 @@ Tap the play button to start a task. When the audio stops and you are finished t
                     </navigationItem>
                     <connections>
                         <outlet property="textView" destination="VFc-E7-mup" id="6DJ-x5-4ob"/>
+                        <outlet property="toolBar" destination="iaU-8E-go9" id="Ioo-p7-h73"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gvp-l9-eIM" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -431,7 +457,7 @@ Tap the play button to start a task. When the audio stops and you are finished t
                         <rect key="frame" x="0.0" y="64" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" editable="NO" id="LPZ-jb-r0a">
+                            <textView clipsSubviews="YES" contentMode="scaleToFill" editable="NO" id="LPZ-jb-r0a">
                                 <rect key="frame" x="10" y="10" width="300" height="440"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -528,7 +554,7 @@ Tap the play button to start a task. When the audio stops and you are finished t
                         <rect key="frame" x="0.0" y="64" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" editable="NO" text="Thank you for participating!" id="O5u-LW-q2m">
+                            <textView clipsSubviews="YES" contentMode="scaleToFill" editable="NO" text="Thank you for participating!" id="O5u-LW-q2m">
                                 <rect key="frame" x="10" y="10" width="300" height="440"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -653,15 +679,19 @@ Tap the play button to start a task. When the audio stops and you are finished t
         <class className="TIPostInstructionViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/TIPostInstructionViewController.h"/>
             <relationships>
+                <relationship kind="action" name="donePushed:" candidateClass="UIBarButtonItem"/>
                 <relationship kind="action" name="savePushed:" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="textView" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="toolBar" candidateClass="UIToolbar"/>
             </relationships>
         </class>
         <class className="TIPreInstructionViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/TIPreInstructionViewController.h"/>
             <relationships>
+                <relationship kind="action" name="donePushed:" candidateClass="UIBarButtonItem"/>
                 <relationship kind="action" name="savePushed:" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="textView" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="toolBar" candidateClass="UIToolbar"/>
             </relationships>
         </class>
         <class className="TISettingsViewController" superclassName="UITableViewController">

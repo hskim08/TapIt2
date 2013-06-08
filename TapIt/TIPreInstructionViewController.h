@@ -11,7 +11,9 @@
 @interface TIPreInstructionViewController : UIViewController
 
 @property IBOutlet UITextView* textView;
+@property IBOutlet UIToolbar* toolBar;
 
 - (IBAction) savePushed:(UIBarButtonItem*)sender;
+- (IBAction) donePushed:(UIBarButtonItem*)sender;
 
 @end

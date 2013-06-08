@@ -42,6 +42,7 @@
 		DACE18D81741A8C3004294B9 /* Stk.mm in Sources */ = {isa = PBXBuildFile; fileRef = DACE18D11741A892004294B9 /* Stk.mm */; };
 		DACE18D91741A8C3004294B9 /* mo_audio.mm in Sources */ = {isa = PBXBuildFile; fileRef = DACE18C51741A86F004294B9 /* mo_audio.mm */; };
 		DACE18DB1741A8FD004294B9 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DACE18DA1741A8FD004294B9 /* AudioToolbox.framework */; };
+		DAE92B771762B2E200A009C4 /* example_cue.wav in Resources */ = {isa = PBXBuildFile; fileRef = DAE92B761762B2E200A009C4 /* example_cue.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -106,6 +107,7 @@
 		DACE18D21741A892004294B9 /* WvIn.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = WvIn.h; path = Ext/Stk/WvIn.h; sourceTree = SOURCE_ROOT; };
 		DACE18D31741A892004294B9 /* WvOut.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = WvOut.h; path = Ext/Stk/WvOut.h; sourceTree = SOURCE_ROOT; };
 		DACE18DA1741A8FD004294B9 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		DAE92B761762B2E200A009C4 /* example_cue.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = example_cue.wav; path = Trial/example_cue.wav; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -311,6 +313,7 @@
 		DACE18DC1741A945004294B9 /* Example */ = {
 			isa = PBXGroup;
 			children = (
+				DAE92B761762B2E200A009C4 /* example_cue.wav */,
 				DA317134174DF5DC009C6AA7 /* example01.wav */,
 				DA317135174DF5DC009C6AA7 /* example02.wav */,
 				DA317136174DF5DC009C6AA7 /* example03.wav */,
@@ -381,6 +384,7 @@
 				DA317137174DF5DC009C6AA7 /* example01.wav in Resources */,
 				DA317138174DF5DC009C6AA7 /* example02.wav in Resources */,
 				DA317139174DF5DC009C6AA7 /* example03.wav in Resources */,
+				DAE92B771762B2E200A009C4 /* example_cue.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

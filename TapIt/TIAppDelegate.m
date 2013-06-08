@@ -23,6 +23,8 @@
     if (![defaults boolForKey:kTIDefaultsInitialized]) {
         
         // copy example files into documents directory
+        [TIFileManager copyResourceToDocument:@"example_cue"
+                                       ofType:@"wav"];
         [TIFileManager copyResourceToDocument:@"example01"
                                        ofType:@"wav"];
         [TIFileManager copyResourceToDocument:@"example02"
@@ -41,13 +43,16 @@
         [defaults setObject:postSessionString
                      forKey:kTIDefaultsPostSession];
         
-        // audio files settings
+        // tracklist audio
         NSMutableArray* trackList = [NSMutableArray arrayWithCapacity:3];
         [trackList addObject:@"example01.wav"];
         [trackList addObject:@"example03.wav"];
         [defaults setObject:trackList
                      forKey:kTIDefaultsTrackList];
         
+        // audio cue
+        [defaults setObject:@"example_cue.wav"
+                     forKey:kTIDefaultsCueAudio];
         [defaults setBool:NO
                    forKey:kTIDefaultsUseCue];
         
