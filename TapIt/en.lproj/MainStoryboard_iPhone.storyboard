@@ -169,7 +169,7 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Control Settings" footerTitle="Set the behavior of the control buttons during a task." id="hCH-fx-1Ya">
+                            <tableViewSection headerTitle="Playback Control" footerTitle="Set the behavior of the control buttons during a task." id="hCH-fx-1Ya">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="I58-CV-uiy">
                                         <rect key="frame" x="0.0" y="437" width="320" height="45"/>
