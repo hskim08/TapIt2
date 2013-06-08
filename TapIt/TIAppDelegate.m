@@ -61,6 +61,8 @@
                    forKey:kTIDefaultsRandomize];
         [defaults setBool:YES
                    forKey:kTIDefaultsAllowPause];
+        [defaults setBool:YES
+                   forKey:kTIDefaultsShowPrev];
         
         // raise initialized flag
         [defaults setBool:YES

@@ -12,6 +12,8 @@
 
 @property IBOutlet UILabel* tapLabel;
 @property IBOutlet UIBarButtonItem* playButton;
+@property IBOutlet UIBarButtonItem* prevButton;
+@property IBOutlet UIBarButtonItem* nextButton;
 
 - (IBAction)tappedPrev:(UIBarButtonItem*)sender;
 - (IBAction)tappedPlay:(UIBarButtonItem*)sender;

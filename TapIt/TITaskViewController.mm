@@ -42,7 +42,12 @@
     [super viewDidLoad];
     
     self.navigationItem.hidesBackButton = YES;
-        
+    if (![[NSUserDefaults standardUserDefaults] boolForKey:kTIDefaultsShowPrev]) {
+        NSMutableArray* tbArray = [NSMutableArray arrayWithArray:self.toolbarItems];
+        [tbArray removeObject:self.prevButton];
+        self.toolbarItems = tbArray;
+    }
+    
     [self.taskManager prepareSession];
     
     [self prepareTask];

@@ -15,10 +15,11 @@ static NSString* const kTIDefaultsPreSession = @"PreSession";
 static NSString* const kTIDefaultsPostSession = @"PostSession";
 
 static NSString* const kTIDefaultsTrackList = @"TrackList";
+static NSString* const kTIDefaultsRandomize = @"Randomize";
 static NSString* const kTIDefaultsCueAudio = @"CueAudio";
 static NSString* const kTIDefaultsUseCue = @"UseCue";
 
-static NSString* const kTIDefaultsRandomize = @"Randomize";
 static NSString* const kTIDefaultsAllowPause = @"AllowPause";
+static NSString* const kTIDefaultsShowPrev = @"ShowPrev";
 
 #endif

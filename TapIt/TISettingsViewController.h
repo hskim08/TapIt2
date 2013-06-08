@@ -17,11 +17,13 @@
 
 @property IBOutlet UISwitch* randomizeSwitch;
 @property IBOutlet UISwitch* allowPauseSwitch;
+@property IBOutlet UISwitch* showPrevSwitch;
 
 - (IBAction)tappedDone:(UIBarButtonItem*)sender;
 
 - (IBAction)useCueChanged:(UISwitch*)sender;
 - (IBAction)randomizeChanged:(UISwitch*)sender;
 - (IBAction)allowPauseChanged:(UISwitch*)sender;
+- (IBAction)showPrevChanged:(UISwitch*)sender;
 
 @end

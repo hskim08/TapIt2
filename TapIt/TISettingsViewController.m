@@ -49,19 +49,13 @@
     
     self.randomizeSwitch.on = [defaults boolForKey:kTIDefaultsRandomize];
     self.allowPauseSwitch.on = [defaults boolForKey:kTIDefaultsAllowPause];
+    self.showPrevSwitch.on = [defaults boolForKey:kTIDefaultsShowPrev];
 }
 
 //#pragma mark - Table view delegate
 //
 //- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 //{
-//    // Navigation logic may go here. Create and push another view controller.
-//    /*
-//     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-//     // ...
-//     // Pass the selected object to the new view controller.
-//     [self.navigationController pushViewController:detailViewController animated:YES];
-//     */
 //}
 
 #pragma mark - IBAction Selectors
@@ -77,7 +71,7 @@
 {
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
     [defaults setBool:sender.isOn
-               forKey:@"UseCue"];
+               forKey:kTIDefaultsUseCue];
     
     [defaults synchronize];
 }
@@ -86,7 +80,7 @@
 {
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
     [defaults setBool:sender.isOn
-               forKey:@"Randomize"];
+               forKey:kTIDefaultsRandomize];
 
     [defaults synchronize];
 }
@@ -95,10 +89,18 @@
 {
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
     [defaults setBool:sender.isOn
-               forKey:@"AllowPause"];
+               forKey:kTIDefaultsAllowPause];
 
     [defaults synchronize];
 }
 
+- (IBAction)showPrevChanged:(UISwitch*)sender
+{
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setBool:sender.isOn
+               forKey:kTIDefaultsShowPrev];
+    
+    [defaults synchronize];
+}
 
 @end
