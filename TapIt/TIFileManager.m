@@ -8,6 +8,8 @@
 
 #import "TIFileManager.h"
 
+#import "ZipArchive.h"
+
 @implementation TIFileManager
 
 + (NSString *) documentsDirectory
@@ -17,17 +19,29 @@
     return basePath;
 }
 
-+ (NSArray*) documentsDirectoryFiles
++ (NSString *) cacheDirectory
+{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+    NSString *basePath = ([paths count] > 0) ? [paths objectAtIndex:0] : nil;
+    return basePath;
+}
+
++ (NSArray*) filesInDirectory:(NSString*)directory
 {
     NSFileManager* fileManager = [NSFileManager defaultManager];
     NSError* error;
-    NSArray* fileList = [fileManager contentsOfDirectoryAtPath:[TIFileManager documentsDirectory]
+    NSArray* fileList = [fileManager contentsOfDirectoryAtPath:directory
                                                          error:&error];
     
     if (error)
         NSLog(@"Failed to get list of files: %@", error.description);
     
     return fileList;
+}
+
++ (NSArray*) documentsDirectoryFiles
+{
+    return [TIFileManager filesInDirectory:[TIFileManager documentsDirectory]];
 }
 
 + (NSArray*) documentsWavFiles
@@ -100,6 +114,7 @@
     // check if saved dir exists
     NSFileManager* fileManager = [NSFileManager defaultManager];
     if ( ![fileManager fileExistsAtPath:pathString] ) {
+        
         NSError* error;
         [fileManager createDirectoryAtPath:pathString
                withIntermediateDirectories:YES
@@ -110,6 +125,91 @@
     }
 }
 
+#pragma mark - Zip Selectors
 
++ (NSArray*) expandFilePath:(NSArray*)files inDirectory:(NSString*)directory
+{
+    NSMutableArray* expandedFiles = [NSMutableArray arrayWithCapacity:0];
+
+    for (NSString* file in files) {
+        
+        [expandedFiles addObjectsFromArray:[TIFileManager expandFile:file
+                                                         inDirectory:directory]];
+    }
+
+    return expandedFiles;
+}
+
++ (NSArray*) expandFile:(NSString*)file inDirectory:(NSString*)directory
+{
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    
+    NSMutableArray* expandedFiles = [NSMutableArray arrayWithCapacity:0];
+    
+    NSString* filePath = [directory stringByAppendingPathComponent:file];//[NSString stringWithFormat:@"%@/%@", directory, file];
+    BOOL isDir = NO;
+    
+    if ( [fileManager fileExistsAtPath:filePath
+                           isDirectory:&isDir] ) {
+        
+        if (isDir) { // expand recursively
+            
+            // get sub file list
+            NSArray* subFiles = [TIFileManager filesInDirectory:filePath];
+            
+            for (NSString* subFile in subFiles) {
+                
+                [expandedFiles addObjectsFromArray:[TIFileManager expandFile:[file stringByAppendingPathComponent:subFile]//[NSString stringWithFormat:@"%@/%@", file, subFile]
+                                                                 inDirectory:directory]];
+            }
+        
+        }
+        else // add file
+            [expandedFiles addObject:file];
+    }
+    
+    return expandedFiles;
+}
+
++ (NSString*) createZipArchiveWithFiles:(NSArray*)files inDirectory:(NSString*)directory
+{
+    return [TIFileManager createZipArchiveWithFiles:files
+                                        inDirectory:directory
+                                        toDirectory:directory];
+}
+
++ (NSString*) createZipArchiveWithFiles:(NSArray*)files inDirectory:(NSString*)inDir toDirectory:(NSString*)outDir
+{
+    NSString *zipFilePath = [outDir stringByAppendingPathComponent:@"export.zip"];
+    
+    // expand all sub paths
+    NSArray* expandedFiles = [TIFileManager expandFilePath:files
+                                               inDirectory:inDir];
+    
+    // initialize zip archiver
+    ZipArchive* zipArchive = [[ZipArchive alloc] init];
+    
+    // create zip file
+    if (![zipArchive CreateZipFile2:zipFilePath])
+        NSLog(@"Failed to create zip file: %@", zipFilePath);
+    
+    // add files to zip archive
+    for(NSString* file in expandedFiles){
+        
+        // TODO: ZipArchive has problems compressing wav files. fix this
+        if (![[[file lastPathComponent] pathExtension] isEqualToString:@"wav"]) {
+            
+            if (![zipArchive addFileToZip:[inDir stringByAppendingPathComponent:file]//[NSString stringWithFormat:@"%@/%@", inDir, file]
+                                  newname:file])
+                NSLog(@"Failed to add to zip: %@", file);
+        }
+    }
+    
+    // close file
+    if (![zipArchive CloseZipFile2])
+        NSLog(@"Failed to close zip file");
+    
+    return zipFilePath;
+}
 
 @end

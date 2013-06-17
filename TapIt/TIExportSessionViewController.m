@@ -8,13 +8,16 @@
 
 #import "TIExportSessionViewController.h"
 
+#import <MessageUI/MessageUI.h>
+
 #import "TIFileManager.h"
 
-@interface TIExportSessionViewController ()
+@interface TIExportSessionViewController ()<MFMailComposeViewControllerDelegate>
 
 @property NSArray* sessionList;
 
 - (void) sendSelectedToMail;
+-(void) displayMailComposerSheetWithAttachement:(NSString*)file;
 
 @end
 
@@ -124,15 +127,54 @@
 - (void) sendSelectedToMail
 {
     NSArray* selectedRows = [self.tableView indexPathsForSelectedRows];
-    NSMutableArray* selectedList = [NSMutableArray arrayWithCapacity:selectedRows.count];
+    if (selectedRows.count < 1)
+        return;
 
+    NSMutableArray* selectedList = [NSMutableArray arrayWithCapacity:selectedRows.count];
     for (NSIndexPath* path in selectedRows)
         [selectedList addObject:[self.sessionList objectAtIndex:path.row]];
 
-    // TODO: compress folders
+    // compress folders
+    NSString* exportFile = [TIFileManager createZipArchiveWithFiles:selectedList
+                                                        inDirectory:[TIFileManager documentsDirectory]
+                                                        toDirectory:[TIFileManager cacheDirectory]];
     
-    // TODO: send to mail
-    
+    // send to mail
+    [self displayMailComposerSheetWithAttachement:exportFile];
 }
+
+-(void) displayMailComposerSheetWithAttachement:(NSString*)file
+{
+	MFMailComposeViewController *picker = [[MFMailComposeViewController alloc] init];
+	picker.mailComposeDelegate = self;
+	
+	[picker setSubject:@"Exporting Tap-It Data"];
+	
+	// Attach an image to the email
+	NSData *myData = [NSData dataWithContentsOfFile:file];
+	[picker addAttachmentData:myData
+                     mimeType:@"application/zip"
+                     fileName:@"TapItData.zip"]; // TODO: use more informative file name. Use date-time.
+	
+	// Fill out the email body text
+	NSString *emailBody = @"Exporting Tap-It data for download.";
+	[picker setMessageBody:emailBody isHTML:NO];
+	
+	[self presentViewController:picker
+                       animated:YES
+                     completion:^{
+                     }];
+}
+
+#pragma mark - MFMailComposeViewControllerDelegate Selector
+
+- (void)mailComposeController:(MFMailComposeViewController*)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error
+{
+	[self dismissViewControllerAnimated:YES
+                             completion:^{
+                             }];
+}
+
+
 
 @end

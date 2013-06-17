@@ -12,8 +12,19 @@
 
 // returns the documents directory for the app
 + (NSString *) documentsDirectory;
++ (NSString *) cacheDirectory;
+
+// get list of files in directory
++ (NSArray*) filesInDirectory:(NSString*)directory;
+
+// expand an array of files into full file structure
++ (NSArray*) expandFilePath:(NSArray*)files inDirectory:(NSString*)directory;
++ (NSArray*) expandFile:(NSString*)file inDirectory:(NSString*)directory;
+
+// easy access selectors
 + (NSArray*) documentsDirectoryFiles;
 + (NSArray*) documentsWavFiles;
+
 + (NSArray*) sessionDirectories;
 
 // copies a resource from the app bundle into the documents directory. this selector will overwrite files
@@ -23,5 +34,9 @@
 
 // checks if the path exists and creates a directory if the directory does not exist
 + (void) checkDirectoryPath:(NSString*)pathString;
+
+// create zip files
++ (NSString*) createZipArchiveWithFiles:(NSArray*)files inDirectory:(NSString*)directory;
++ (NSString*) createZipArchiveWithFiles:(NSArray*)files inDirectory:(NSString*)inDir toDirectory:(NSString*)outDir;
 
 @end

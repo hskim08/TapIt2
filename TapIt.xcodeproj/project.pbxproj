@@ -21,6 +21,14 @@
 		DA1CEF751758ACE500D1BA40 /* TIPostInstructionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1CEF741758ACE500D1BA40 /* TIPostInstructionViewController.m */; };
 		DA1CEF781758ACF700D1BA40 /* TIPreInstructionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1CEF771758ACF700D1BA40 /* TIPreInstructionViewController.m */; };
 		DA2F4E63176F99470020E5BD /* TIInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA2F4E62176F99470020E5BD /* TIInfoViewController.m */; };
+		DA2F4E74176F9EC40020E5BD /* ChangeLogUnzip in Resources */ = {isa = PBXBuildFile; fileRef = DA2F4E67176F9EC40020E5BD /* ChangeLogUnzip */; };
+		DA2F4E75176F9EC40020E5BD /* ioapi.c in Sources */ = {isa = PBXBuildFile; fileRef = DA2F4E69176F9EC40020E5BD /* ioapi.c */; };
+		DA2F4E77176F9EC40020E5BD /* mztools.c in Sources */ = {isa = PBXBuildFile; fileRef = DA2F4E6C176F9EC40020E5BD /* mztools.c */; };
+		DA2F4E78176F9EC40020E5BD /* unzip.c in Sources */ = {isa = PBXBuildFile; fileRef = DA2F4E6E176F9EC40020E5BD /* unzip.c */; };
+		DA2F4E79176F9EC40020E5BD /* zip.c in Sources */ = {isa = PBXBuildFile; fileRef = DA2F4E70176F9EC40020E5BD /* zip.c */; };
+		DA2F4E7A176F9EC40020E5BD /* ZipArchive.m in Sources */ = {isa = PBXBuildFile; fileRef = DA2F4E73176F9EC40020E5BD /* ZipArchive.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		DA2F4E82176FBC2C0020E5BD /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DA2F4E81176FBC2C0020E5BD /* libz.dylib */; };
+		DA2F4E84176FBED50020E5BD /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA2F4E83176FBED50020E5BD /* MessageUI.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		DA317131174DEE8A009C6AA7 /* icon57.png in Resources */ = {isa = PBXBuildFile; fileRef = DA317130174DEE8A009C6AA7 /* icon57.png */; };
 		DA317133174DEE8D009C6AA7 /* icon114.png in Resources */ = {isa = PBXBuildFile; fileRef = DA317132174DEE8D009C6AA7 /* icon114.png */; };
 		DA317137174DF5DC009C6AA7 /* example01.wav in Resources */ = {isa = PBXBuildFile; fileRef = DA317134174DF5DC009C6AA7 /* example01.wav */; };
@@ -68,6 +76,21 @@
 		DA1CEF771758ACF700D1BA40 /* TIPreInstructionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TIPreInstructionViewController.m; sourceTree = "<group>"; };
 		DA2F4E61176F99470020E5BD /* TIInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TIInfoViewController.h; sourceTree = "<group>"; };
 		DA2F4E62176F99470020E5BD /* TIInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TIInfoViewController.m; sourceTree = "<group>"; };
+		DA2F4E67176F9EC40020E5BD /* ChangeLogUnzip */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ChangeLogUnzip; sourceTree = "<group>"; };
+		DA2F4E68176F9EC40020E5BD /* crypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = crypt.h; sourceTree = "<group>"; };
+		DA2F4E69176F9EC40020E5BD /* ioapi.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ioapi.c; sourceTree = "<group>"; };
+		DA2F4E6A176F9EC40020E5BD /* ioapi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ioapi.h; sourceTree = "<group>"; };
+		DA2F4E6B176F9EC40020E5BD /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
+		DA2F4E6C176F9EC40020E5BD /* mztools.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = mztools.c; sourceTree = "<group>"; };
+		DA2F4E6D176F9EC40020E5BD /* mztools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mztools.h; sourceTree = "<group>"; };
+		DA2F4E6E176F9EC40020E5BD /* unzip.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = unzip.c; sourceTree = "<group>"; };
+		DA2F4E6F176F9EC40020E5BD /* unzip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = unzip.h; sourceTree = "<group>"; };
+		DA2F4E70176F9EC40020E5BD /* zip.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = zip.c; sourceTree = "<group>"; };
+		DA2F4E71176F9EC40020E5BD /* zip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zip.h; sourceTree = "<group>"; };
+		DA2F4E72176F9EC40020E5BD /* ZipArchive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZipArchive.h; sourceTree = "<group>"; };
+		DA2F4E73176F9EC40020E5BD /* ZipArchive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZipArchive.m; sourceTree = "<group>"; };
+		DA2F4E81176FBC2C0020E5BD /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		DA2F4E83176FBED50020E5BD /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		DA317130174DEE8A009C6AA7 /* icon57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon57.png; path = ../icon57.png; sourceTree = "<group>"; };
 		DA317132174DEE8D009C6AA7 /* icon114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon114.png; path = ../icon114.png; sourceTree = "<group>"; };
 		DA317134174DF5DC009C6AA7 /* example01.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = example01.wav; path = Trial/example01.wav; sourceTree = SOURCE_ROOT; };
@@ -118,8 +141,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA2F4E82176FBC2C0020E5BD /* libz.dylib in Frameworks */,
 				DACE18DB1741A8FD004294B9 /* AudioToolbox.framework in Frameworks */,
 				DA0C094B174177D90023FC61 /* UIKit.framework in Frameworks */,
+				DA2F4E84176FBED50020E5BD /* MessageUI.framework in Frameworks */,
 				DA0C094D174177DA0023FC61 /* Foundation.framework in Frameworks */,
 				DA0C094F174177DA0023FC61 /* CoreGraphics.framework in Frameworks */,
 			);
@@ -148,6 +173,8 @@
 		DA0C0949174177D90023FC61 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DA2F4E81176FBC2C0020E5BD /* libz.dylib */,
+				DA2F4E83176FBED50020E5BD /* MessageUI.framework */,
 				DACE18DA1741A8FD004294B9 /* AudioToolbox.framework */,
 				DA0C094A174177D90023FC61 /* UIKit.framework */,
 				DA0C094C174177D90023FC61 /* Foundation.framework */,
@@ -199,6 +226,35 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
+		DA2F4E65176F9EC40020E5BD /* ZipArchive */ = {
+			isa = PBXGroup;
+			children = (
+				DA2F4E66176F9EC40020E5BD /* minizip */,
+				DA2F4E72176F9EC40020E5BD /* ZipArchive.h */,
+				DA2F4E73176F9EC40020E5BD /* ZipArchive.m */,
+			);
+			name = ZipArchive;
+			path = Ext/ZipArchive;
+			sourceTree = SOURCE_ROOT;
+		};
+		DA2F4E66176F9EC40020E5BD /* minizip */ = {
+			isa = PBXGroup;
+			children = (
+				DA2F4E67176F9EC40020E5BD /* ChangeLogUnzip */,
+				DA2F4E68176F9EC40020E5BD /* crypt.h */,
+				DA2F4E69176F9EC40020E5BD /* ioapi.c */,
+				DA2F4E6A176F9EC40020E5BD /* ioapi.h */,
+				DA2F4E6B176F9EC40020E5BD /* Makefile */,
+				DA2F4E6C176F9EC40020E5BD /* mztools.c */,
+				DA2F4E6D176F9EC40020E5BD /* mztools.h */,
+				DA2F4E6E176F9EC40020E5BD /* unzip.c */,
+				DA2F4E6F176F9EC40020E5BD /* unzip.h */,
+				DA2F4E70176F9EC40020E5BD /* zip.c */,
+				DA2F4E71176F9EC40020E5BD /* zip.h */,
+			);
+			path = minizip;
+			sourceTree = "<group>";
+		};
 		DA4A25AD1757787C00E6A2ED /* Task */ = {
 			isa = PBXGroup;
 			children = (
@@ -242,6 +298,8 @@
 		DACE18C01741A0E3004294B9 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				DA2F4E61176F99470020E5BD /* TIInfoViewController.h */,
+				DA2F4E62176F99470020E5BD /* TIInfoViewController.m */,
 				DACE18BA1741A0C7004294B9 /* TISettingsViewController.h */,
 				DACE18BB1741A0C7004294B9 /* TISettingsViewController.m */,
 				DACE18BD1741A0DD004294B9 /* TITrackListViewController.h */,
@@ -254,8 +312,6 @@
 				DA1CEF771758ACF700D1BA40 /* TIPreInstructionViewController.m */,
 				DAE41BC11767F5DF006637DA /* TIExportSessionViewController.h */,
 				DAE41BC21767F5DF006637DA /* TIExportSessionViewController.m */,
-				DA2F4E61176F99470020E5BD /* TIInfoViewController.h */,
-				DA2F4E62176F99470020E5BD /* TIInfoViewController.m */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -272,6 +328,7 @@
 		DACE18C21741A68B004294B9 /* Ext */ = {
 			isa = PBXGroup;
 			children = (
+				DA2F4E65176F9EC40020E5BD /* ZipArchive */,
 				DACE18C61741A875004294B9 /* Stk */,
 				DACE18C31741A7DE004294B9 /* MoMu */,
 			);
@@ -382,6 +439,7 @@
 				DA317138174DF5DC009C6AA7 /* example02.wav in Resources */,
 				DA317139174DF5DC009C6AA7 /* example03.wav in Resources */,
 				DAE92B771762B2E200A009C4 /* example_cue.wav in Resources */,
+				DA2F4E74176F9EC40020E5BD /* ChangeLogUnzip in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -413,6 +471,11 @@
 				DAC9BF201759713E003204DF /* TICueAudioViewController.m in Sources */,
 				DAE41BC31767F5DF006637DA /* TIExportSessionViewController.m in Sources */,
 				DA2F4E63176F99470020E5BD /* TIInfoViewController.m in Sources */,
+				DA2F4E75176F9EC40020E5BD /* ioapi.c in Sources */,
+				DA2F4E77176F9EC40020E5BD /* mztools.c in Sources */,
+				DA2F4E78176F9EC40020E5BD /* unzip.c in Sources */,
+				DA2F4E79176F9EC40020E5BD /* zip.c in Sources */,
+				DA2F4E7A176F9EC40020E5BD /* ZipArchive.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

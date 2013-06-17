@@ -13,7 +13,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <sections>
-                            <tableViewSection headerTitle="Instructions" footerTitle="Edit instructions for sessions." id="9hu-ec-ov9">
+                            <tableViewSection headerTitle="Instructions" footerTitle="Edit instructions for session." id="9hu-ec-ov9">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="yuB-1O-4s2" style="IBUITableViewCellStyleDefault" id="2ai-u5-MOd">
                                         <rect key="frame" x="0.0" y="46" width="320" height="45"/>
@@ -397,7 +397,11 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Choose Sessions" id="z45-Ka-Pgi">
                         <barButtonItem key="backBarButtonItem" title="Back" id="VXX-4d-geW"/>
-                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="action" id="SAi-rp-oBv"/>
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="action" id="SAi-rp-oBv">
+                            <connections>
+                                <action selector="sendPushed:" destination="hZw-r5-CE4" id="vvc-uu-crD"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DCW-k6-7Xq" userLabel="First Responder" sceneMemberID="firstResponder"/>
