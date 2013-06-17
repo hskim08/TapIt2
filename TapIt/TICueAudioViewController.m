@@ -58,7 +58,7 @@
     static NSString *CellIdentifier = @"CueTrackCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    // Configure the cell.
+    // Configure the cell
     cell.textLabel.text = [self.wavList objectAtIndex:indexPath.row];
     
     return cell;

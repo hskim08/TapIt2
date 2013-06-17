@@ -14,6 +14,7 @@
 + (NSString *) documentsDirectory;
 + (NSArray*) documentsDirectoryFiles;
 + (NSArray*) documentsWavFiles;
++ (NSArray*) sessionDirectories;
 
 // copies a resource from the app bundle into the documents directory. this selector will overwrite files
 // already existing in the documents directory with the given filename

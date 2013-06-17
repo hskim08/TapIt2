@@ -32,7 +32,14 @@
 
 + (NSArray*) documentsWavFiles
 {
-    return [[TIFileManager documentsDirectoryFiles] filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self ENDSWITH '.wav'"]];
+    return [[TIFileManager documentsDirectoryFiles] filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self endswith '.wav'"]];
+}
+
++ (NSArray*) sessionDirectories
+{
+    NSPredicate* p = [NSPredicate predicateWithFormat:@"self like %@", @"????????-??????"];
+    NSArray* array = [[TIFileManager documentsDirectoryFiles] filteredArrayUsingPredicate:p];
+    return array;
 }
 
 + (void) copyResourceToDocument:(NSString*)resource ofType:(NSString*)ext as:(NSString*)docFile overwrite:(BOOL)overwrite;

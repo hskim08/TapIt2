@@ -60,11 +60,17 @@
 
 #pragma mark - IBAction Selectors
 
-- (IBAction)tappedDone:(UIBarButtonItem*)sender
+- (IBAction)donePushed:(UIBarButtonItem*)sender
 {
     [self dismissViewControllerAnimated:YES
                              completion:^{
                              }];
+}
+
+- (IBAction)infoPushed:(UIButton*)sender
+{
+    [self performSegueWithIdentifier:@"SettingsToInfo"
+                              sender:self];
 }
 
 - (IBAction)useCueChanged:(UISwitch*)sender

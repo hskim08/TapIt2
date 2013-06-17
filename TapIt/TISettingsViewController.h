@@ -19,7 +19,8 @@
 @property IBOutlet UISwitch* allowPauseSwitch;
 @property IBOutlet UISwitch* showPrevSwitch;
 
-- (IBAction)tappedDone:(UIBarButtonItem*)sender;
+- (IBAction)donePushed:(UIBarButtonItem*)sender;
+- (IBAction)infoPushed:(UIButton*)sender;
 
 - (IBAction)useCueChanged:(UISwitch*)sender;
 - (IBAction)randomizeChanged:(UISwitch*)sender;
