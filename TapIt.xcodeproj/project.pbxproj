@@ -37,6 +37,7 @@
 		DA31713C174DFA31009C6AA7 /* TITaskManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DA31713B174DFA31009C6AA7 /* TITaskManager.m */; };
 		DA4A25AC17576F9400E6A2ED /* TIFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DA4A25AB17576F9400E6A2ED /* TIFileManager.m */; };
 		DA9B155717516B1800E8B39C /* TIAudio.mm in Sources */ = {isa = PBXBuildFile; fileRef = DA9B155617516B1800E8B39C /* TIAudio.mm */; };
+		DAC33608177107F9009407F5 /* legal.txt in Resources */ = {isa = PBXBuildFile; fileRef = DAC33607177107F9009407F5 /* legal.txt */; };
 		DAC9BF201759713E003204DF /* TICueAudioViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC9BF1F1759713E003204DF /* TICueAudioViewController.m */; };
 		DACE18B31741A078004294B9 /* TIConsentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DACE18B21741A078004294B9 /* TIConsentViewController.m */; };
 		DACE18B61741A095004294B9 /* TITaskViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = DACE18B51741A095004294B9 /* TITaskViewController.mm */; };
@@ -103,6 +104,7 @@
 		DA9B155517516B1800E8B39C /* TIAudio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TIAudio.h; sourceTree = "<group>"; };
 		DA9B155617516B1800E8B39C /* TIAudio.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TIAudio.mm; sourceTree = "<group>"; };
 		DAC22B61175D472B00AA6E4E /* TIDefaults.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TIDefaults.h; sourceTree = "<group>"; };
+		DAC33607177107F9009407F5 /* legal.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = legal.txt; sourceTree = "<group>"; };
 		DAC9BF1E1759713E003204DF /* TICueAudioViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TICueAudioViewController.h; sourceTree = "<group>"; };
 		DAC9BF1F1759713E003204DF /* TICueAudioViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TICueAudioViewController.m; sourceTree = "<group>"; };
 		DACE18B11741A078004294B9 /* TIConsentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TIConsentViewController.h; sourceTree = "<group>"; };
@@ -222,6 +224,7 @@
 				DA317130174DEE8A009C6AA7 /* icon57.png */,
 				DA0C0962174177DA0023FC61 /* MainStoryboard_iPhone.storyboard */,
 				DA0C0965174177DA0023FC61 /* MainStoryboard_iPad.storyboard */,
+				DAC33607177107F9009407F5 /* legal.txt */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -440,6 +443,7 @@
 				DA317139174DF5DC009C6AA7 /* example03.wav in Resources */,
 				DAE92B771762B2E200A009C4 /* example_cue.wav in Resources */,
 				DA2F4E74176F9EC40020E5BD /* ChangeLogUnzip in Resources */,
+				DAC33608177107F9009407F5 /* legal.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

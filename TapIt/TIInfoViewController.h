@@ -10,6 +10,8 @@
 
 @interface TIInfoViewController : UIViewController
 
+@property IBOutlet UITextView* textView;
+
 - (IBAction)closePushed:(UIBarButtonItem*)sender;
 
 @end

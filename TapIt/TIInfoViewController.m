@@ -27,6 +27,19 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+    NSURL* legalUrl = [[NSBundle mainBundle] URLForResource:@"legal"
+                                              withExtension:@"txt"];
+    
+    NSError* error = nil;
+    NSString* legalString = [NSString stringWithContentsOfURL:legalUrl
+                                                     encoding:NSUTF8StringEncoding
+                                                        error:&error];
+    
+    if (error)
+        NSLog(@"Failed to read legal text: %@", error.description);
+    
+    self.textView.text = legalString;
 }
 
 #pragma mark - IBAction Selectors
