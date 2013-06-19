@@ -13,16 +13,21 @@
 
 #import "TIAudio.h"
 
-@interface TITaskViewController ()
+@interface TITaskViewController () <TIAudioDelegate>
 
 @property (nonatomic) TITaskManager* taskManager;
 
 @property NSTimeInterval startTime;
 @property NSMutableString* tapData;
 
+@property BOOL allowPause;
+@property BOOL allowSkip;
+
 - (void) playAudio:(BOOL)play;
 
 - (void) prepareTask;
+
+- (void) handleEndOfAudio;
 
 @end
 
@@ -41,6 +46,7 @@
 {
     [super viewDidLoad];
     
+    // prepare view
     self.navigationItem.hidesBackButton = YES;
     if (![[NSUserDefaults standardUserDefaults] boolForKey:kTIDefaultsShowPrev]) {
         NSMutableArray* tbArray = [NSMutableArray arrayWithArray:self.toolbarItems];
@@ -48,6 +54,15 @@
         self.toolbarItems = tbArray;
     }
     
+    // get settings
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    self.allowPause = [defaults boolForKey:kTIDefaultsAllowPause];
+    self.allowSkip = [defaults boolForKey:kTIDefaultsAllowTaskSkip];
+    
+    // prepare audio listener
+    TIAudio::getInstance().delegate = self;
+    
+    // prepare session
     [self.taskManager prepareSession];
     
     [self prepareTask];
@@ -140,7 +155,11 @@
     if (play) {
         self.startTime = [[NSDate date] timeIntervalSince1970];
         TIAudio::getInstance().play();
-        self.playButton.title = @"Pause";
+        
+        if(self.allowPause)
+            self.playButton.title = @"Pause";
+        else
+            self.playButton.enabled = NO;
     }
     else {
         TIAudio::getInstance().pause();
@@ -180,6 +199,35 @@
     
     // update title
     self.title = [NSString stringWithFormat:@"Task #%d", self.taskManager.currentTask+1];
+
+    self.playButton.enabled = YES;
+    self.nextButton.enabled = self.allowSkip;
+    self.prevButton.enabled = self.allowSkip;
+}
+
+- (void) handleEndOfAudio
+{
+    if (self.allowPause)
+        self.playButton.title = @"Play";
+    
+    self.playButton.enabled = NO;
+    self.nextButton.enabled = YES;
+    self.prevButton.enabled = YES;
+}
+
+#pragma mark - TIAudioDelegate Selectors
+
+- (void) didReachAudioEnd
+{
+    [self performSelectorOnMainThread:@selector(handleEndOfAudio)
+                           withObject:nil
+                        waitUntilDone:NO];
+}
+
+- (void) didReachCueAudioEnd
+{
+    // uncomment line below to exclude cue audio playback time
+//    self.startTime = [[NSDate date] timeIntervalSince1970];
 }
 
 @end

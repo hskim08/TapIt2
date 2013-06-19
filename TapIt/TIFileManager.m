@@ -39,6 +39,11 @@
     return fileList;
 }
 
++ (NSArray*) wavFilesInDirectory:(NSString*)directory
+{
+    return [[TIFileManager filesInDirectory:directory] filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self endswith '.wav'"]];
+}
+
 + (NSArray*) documentsDirectoryFiles
 {
     return [TIFileManager filesInDirectory:[TIFileManager documentsDirectory]];

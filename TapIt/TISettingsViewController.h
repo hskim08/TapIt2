@@ -17,6 +17,7 @@
 
 @property IBOutlet UISwitch* randomizeSwitch;
 @property IBOutlet UISwitch* allowPauseSwitch;
+@property IBOutlet UISwitch* allowTaskSkipSwitch;
 @property IBOutlet UISwitch* showPrevSwitch;
 
 - (IBAction)donePushed:(UIBarButtonItem*)sender;
@@ -25,6 +26,7 @@
 - (IBAction)useCueChanged:(UISwitch*)sender;
 - (IBAction)randomizeChanged:(UISwitch*)sender;
 - (IBAction)allowPauseChanged:(UISwitch*)sender;
+- (IBAction)allowTaskSkipChanged:(UISwitch*)sender;
 - (IBAction)showPrevChanged:(UISwitch*)sender;
 
 @end

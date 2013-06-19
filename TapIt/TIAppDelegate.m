@@ -97,6 +97,8 @@
         [defaults setBool:YES
                    forKey:kTIDefaultsAllowPause];
         [defaults setBool:YES
+                   forKey:kTIDefaultsAllowTaskSkip];
+        [defaults setBool:YES
                    forKey:kTIDefaultsShowPrev];
         
         // raise initialized flag

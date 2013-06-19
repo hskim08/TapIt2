@@ -16,8 +16,16 @@
 #include "FileWvOut.h"
 
 #define SAMPLE_RATE 44100.0
-#define BUFFER_SIZE 512
+#define BUFFER_SIZE 256
 #define NUM_CHANNELS 2
+
+@protocol TIAudioDelegate <NSObject>
+
+@optional
+- (void) didReachAudioEnd;
+- (void) didReachCueAudioEnd;
+
+@end
 
 class TIAudio {
     
@@ -40,6 +48,8 @@ public:
     void play();
     void pause();
     bool isPlaying() { return _isPlaying; }
+    
+    id<TIAudioDelegate> delegate;
     
 private:
     TIAudio();

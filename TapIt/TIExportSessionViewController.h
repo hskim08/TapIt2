@@ -10,6 +10,12 @@
 
 @interface TIExportSessionViewController : UITableViewController
 
+@property IBOutlet UIButton* selectAllButton;
+@property IBOutlet UIButton* deselectAllButton;
+
 - (IBAction)sendPushed:(UIBarButtonItem*)sender;
+
+- (IBAction)selectAllPushed:(UIButton*)sender;
+- (IBAction)deselectAllPushed:(UIButton*)sender;
 
 @end

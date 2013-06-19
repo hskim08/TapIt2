@@ -14,10 +14,10 @@
 
 @interface TIExportSessionViewController ()<MFMailComposeViewControllerDelegate>
 
-@property NSArray* sessionList;
+@property NSMutableArray* sessionList;
 
-- (void) sendSelectedToMail;
--(void) displayMailComposerSheetWithAttachement:(NSString*)file;
+-(void) sendSelectedToMail;
+-(void) displayMailComposerSheetWithAttachment:(NSString*)file withSession:(NSUInteger)count;
 
 @end
 
@@ -38,7 +38,7 @@
 
     self.clearsSelectionOnViewWillAppear = NO;
     
-    self.sessionList = [TIFileManager sessionDirectories];
+    self.sessionList = [NSMutableArray arrayWithArray:[TIFileManager sessionDirectories]];
 }
 
 - (void)didReceiveMemoryWarning
@@ -64,10 +64,20 @@
     static NSString *CellIdentifier = @"SessionCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
+    // get data for cell
+    NSString* sessionDir = [self.sessionList objectAtIndex:indexPath.row];
+    NSUInteger count = [TIFileManager wavFilesInDirectory:[[TIFileManager documentsDirectory] stringByAppendingPathComponent:sessionDir]].count;
+    
     // Configure the cell
-    cell.textLabel.text = [self.sessionList objectAtIndex:indexPath.row];
+    cell.textLabel.text = sessionDir;
+    cell.detailTextLabel.text = [NSString stringWithFormat:((count == 1) ? @"%d Task" : @"%d Tasks"), count];
     
     return cell;
+}
+
+- (NSString*)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    return @"Sessions";
 }
 
 /*
@@ -79,35 +89,34 @@
 }
 */
 
-/*
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
+
+        // TODO: show warning
+        
         // Delete the row from the data source
+        NSString* deletedSession = [self.sessionList objectAtIndex:indexPath.row];
+        NSLog(@"Deleting: %@", deletedSession);
+        
+        // TODO: delete the session directory
+        
+        // remove from array
+        [self.sessionList removeObjectAtIndex:indexPath.row];
+        
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     }   
     else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+    }
 }
-*/
 
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
 // Override to support conditional rearranging of the table view.
 - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
+    return NO;
 }
-*/
 
 #pragma mark - Table view delegate
 
@@ -122,6 +131,23 @@
     [self sendSelectedToMail];
 }
 
+- (IBAction)selectAllPushed:(UIBarButtonItem*)sender
+{
+    for (int i = 0; i < self.sessionList.count; i++)
+        [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:i
+                                                                inSection:0]
+                                    animated:NO
+                              scrollPosition:UITableViewScrollPositionNone];
+}
+
+- (IBAction)deselectAllPushed:(UIBarButtonItem*)sender
+{
+    for (int i = 0; i < self.sessionList.count; i++)
+        [self.tableView deselectRowAtIndexPath:[NSIndexPath indexPathForRow:i
+                                                                  inSection:0]
+                                      animated:NO];
+}
+
 #pragma mark - Private Implementation
 
 - (void) sendSelectedToMail
@@ -130,6 +156,7 @@
     if (selectedRows.count < 1)
         return;
 
+    // get selected session list
     NSMutableArray* selectedList = [NSMutableArray arrayWithCapacity:selectedRows.count];
     for (NSIndexPath* path in selectedRows)
         [selectedList addObject:[self.sessionList objectAtIndex:path.row]];
@@ -140,10 +167,11 @@
                                                         toDirectory:[TIFileManager cacheDirectory]];
     
     // send to mail
-    [self displayMailComposerSheetWithAttachement:exportFile];
+    [self displayMailComposerSheetWithAttachment:exportFile
+                                     withSession:selectedRows.count];
 }
 
--(void) displayMailComposerSheetWithAttachement:(NSString*)file
+-(void) displayMailComposerSheetWithAttachment:(NSString*)file withSession:(NSUInteger)count
 {
 	MFMailComposeViewController *picker = [[MFMailComposeViewController alloc] init];
 	picker.mailComposeDelegate = self;
@@ -157,7 +185,7 @@
                      fileName:@"TapItData.zip"]; // TODO: use more informative file name. Use date-time.
 	
 	// Fill out the email body text
-	NSString *emailBody = @"Exporting Tap-It data for download.";
+	NSString *emailBody = [NSString stringWithFormat:((count == 1) ? @"The attached zip file contains %d session." : @"The attached zip file contains %d sessions."), count];
 	[picker setMessageBody:emailBody isHTML:NO];
 	
 	[self presentViewController:picker

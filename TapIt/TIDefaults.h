@@ -20,6 +20,7 @@ static NSString* const kTIDefaultsCueAudio = @"CueAudio";
 static NSString* const kTIDefaultsUseCue = @"UseCue";
 
 static NSString* const kTIDefaultsAllowPause = @"AllowPause";
+static NSString* const kTIDefaultsAllowTaskSkip = @"AllowTaskSkip";
 static NSString* const kTIDefaultsShowPrev = @"ShowPrev";
 
 #endif

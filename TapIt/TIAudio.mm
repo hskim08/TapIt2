@@ -96,18 +96,36 @@ void TIAudio::handleAudio(Float32* buffer, UInt32 numFrames)
         
         if (_isPlaying) {
             
+            // write audio here to include cue audio time
+            _waveWriter.tick(buffer[2*i]);
+            
+            // fill play buffer
             if (_useCue && !_cueReader.isFinished()) {
                 // play cue file
                 _cueReader.tick();
+                
+                if (_cueReader.isFinished()) // signal end of cue audio
+                    [delegate didReachCueAudioEnd];
+                
+                // fill play buffer
                 buffer[2*i] = _cueReader.lastOut(0);
                 buffer[2*i + 1] = _cueReader.lastOut(1);
             }
             else {
-                // write audio
-                _waveWriter.tick(buffer[2*i]);
                 
-                // play audio file
-                _waveReader.tick();
+                // write audio here to exclude cue audio time
+//                _waveWriter.tick(buffer[2*i]);
+                
+                if (!_waveReader.isFinished()) {
+                    
+                    // play audio file
+                    _waveReader.tick();
+                    
+                    if (_waveReader.isFinished()) // signal end of audio
+                        [delegate didReachAudioEnd];
+                }
+                
+                // fill play buffer
                 buffer[2*i] = _waveReader.lastOut(0);
                 buffer[2*i + 1] = _waveReader.lastOut(1);
             }

@@ -16,6 +16,7 @@
 
 // get list of files in directory
 + (NSArray*) filesInDirectory:(NSString*)directory;
++ (NSArray*) wavFilesInDirectory:(NSString*)directory;
 
 // expand an array of files into full file structure
 + (NSArray*) expandFilePath:(NSArray*)files inDirectory:(NSString*)directory;

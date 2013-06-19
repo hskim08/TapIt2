@@ -49,6 +49,7 @@
     
     self.randomizeSwitch.on = [defaults boolForKey:kTIDefaultsRandomize];
     self.allowPauseSwitch.on = [defaults boolForKey:kTIDefaultsAllowPause];
+    self.allowTaskSkipSwitch.on = [defaults boolForKey:kTIDefaultsAllowTaskSkip];
     self.showPrevSwitch.on = [defaults boolForKey:kTIDefaultsShowPrev];
 }
 
@@ -97,6 +98,15 @@
     [defaults setBool:sender.isOn
                forKey:kTIDefaultsAllowPause];
 
+    [defaults synchronize];
+}
+
+- (IBAction)allowTaskSkipChanged:(UISwitch*)sender
+{
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setBool:sender.isOn
+               forKey:kTIDefaultsAllowTaskSkip];
+    
     [defaults synchronize];
 }
 
