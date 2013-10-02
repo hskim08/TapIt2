@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C36F0E2A17FCB53B00FB3C99 /* TIAddAudioTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C36F0E2917FCB53B00FB3C99 /* TIAddAudioTableViewController.m */; };
 		DA0C094B174177D90023FC61 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA0C094A174177D90023FC61 /* UIKit.framework */; };
 		DA0C094D174177DA0023FC61 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA0C094C174177D90023FC61 /* Foundation.framework */; };
 		DA0C094F174177DA0023FC61 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA0C094E174177DA0023FC61 /* CoreGraphics.framework */; };
@@ -56,6 +57,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C36F0E2817FCB53B00FB3C99 /* TIAddAudioTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TIAddAudioTableViewController.h; sourceTree = "<group>"; };
+		C36F0E2917FCB53B00FB3C99 /* TIAddAudioTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TIAddAudioTableViewController.m; sourceTree = "<group>"; };
 		DA0C0947174177D90023FC61 /* TapIt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TapIt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA0C094A174177D90023FC61 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		DA0C094C174177D90023FC61 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -307,6 +310,8 @@
 				DACE18BB1741A0C7004294B9 /* TISettingsViewController.m */,
 				DACE18BD1741A0DD004294B9 /* TITrackListViewController.h */,
 				DACE18BE1741A0DD004294B9 /* TITrackListViewController.m */,
+				C36F0E2817FCB53B00FB3C99 /* TIAddAudioTableViewController.h */,
+				C36F0E2917FCB53B00FB3C99 /* TIAddAudioTableViewController.m */,
 				DAC9BF1E1759713E003204DF /* TICueAudioViewController.h */,
 				DAC9BF1F1759713E003204DF /* TICueAudioViewController.m */,
 				DA1CEF731758ACE500D1BA40 /* TIPostInstructionViewController.h */,
@@ -468,6 +473,7 @@
 				DACE18BC1741A0C7004294B9 /* TISettingsViewController.m in Sources */,
 				DACE18BF1741A0DD004294B9 /* TITrackListViewController.m in Sources */,
 				DA31713C174DFA31009C6AA7 /* TITaskManager.m in Sources */,
+				C36F0E2A17FCB53B00FB3C99 /* TIAddAudioTableViewController.m in Sources */,
 				DA9B155717516B1800E8B39C /* TIAudio.mm in Sources */,
 				DA4A25AC17576F9400E6A2ED /* TIFileManager.m in Sources */,
 				DA1CEF751758ACE500D1BA40 /* TIPostInstructionViewController.m in Sources */,

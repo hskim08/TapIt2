@@ -10,6 +10,4 @@
 
 @interface TICueAudioViewController : UITableViewController
 
-- (IBAction)savePushed:(UIBarButtonItem*)sender;
-
 @end

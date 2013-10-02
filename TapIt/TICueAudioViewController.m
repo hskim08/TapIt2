@@ -16,6 +16,7 @@
 @property NSArray* wavList;
 @property NSInteger selectedIndex;
 
+- (void) saveSelectedToDefaults;
 - (void) loadSelectedFromDefaults;
 
 @end
@@ -70,27 +71,27 @@
 {
     UITableViewCell* selectedCell = [self.tableView cellForRowAtIndexPath:indexPath];
     
-    if (self.selectedIndex == indexPath.row) {
+    if (self.selectedIndex == indexPath.row) { // allow deselecting audio cue
         
         selectedCell.selected = NO;
         self.selectedIndex = -1;
     }
     else
         self.selectedIndex = indexPath.row;
+    
+    // save to defaults
+    [self saveSelectedToDefaults];
 }
 
 #pragma mark - IBAction Selectors
 
-- (IBAction) savePushed:(UIBarButtonItem*)sender
+- (void) saveSelectedToDefaults
 {
     // save selected
     [[NSUserDefaults standardUserDefaults] setObject:(self.selectedIndex > -1) ? [self.wavList objectAtIndex:self.selectedIndex] : nil
                                               forKey:kTIDefaultsCueAudio];
     
     [[NSUserDefaults standardUserDefaults] synchronize];
-    
-    // dismiss view
-    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 #pragma mark - Private Selectors

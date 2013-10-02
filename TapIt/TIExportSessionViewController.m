@@ -12,7 +12,7 @@
 
 #import "TIFileManager.h"
 
-@interface TIExportSessionViewController ()<MFMailComposeViewControllerDelegate>
+@interface TIExportSessionViewController ()<MFMailComposeViewControllerDelegate, UIAlertViewDelegate>
 
 @property NSMutableArray* sessionList;
 
@@ -152,23 +152,36 @@
 
 - (void) sendSelectedToMail
 {
-    NSArray* selectedRows = [self.tableView indexPathsForSelectedRows];
-    if (selectedRows.count < 1)
-        return;
-
-    // get selected session list
-    NSMutableArray* selectedList = [NSMutableArray arrayWithCapacity:selectedRows.count];
-    for (NSIndexPath* path in selectedRows)
-        [selectedList addObject:[self.sessionList objectAtIndex:path.row]];
-
-    // compress folders
-    NSString* exportFile = [TIFileManager createZipArchiveWithFiles:selectedList
-                                                        inDirectory:[TIFileManager documentsDirectory]
-                                                        toDirectory:[TIFileManager cacheDirectory]];
+    // check if the app can send mail
+    if(![MFMailComposeViewController canSendMail]) {
+        
+        UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Can not send email"
+                                                            message:@"Please set up an email account for your device to enable session exporting."
+                                                           delegate:self
+                                                  cancelButtonTitle:@"Ok"
+                                                  otherButtonTitles:nil];
+        [alertView show];
+    }
+    else {
+        
+        NSArray* selectedRows = [self.tableView indexPathsForSelectedRows];
+        if (selectedRows.count < 1)
+            return;
     
-    // send to mail
-    [self displayMailComposerSheetWithAttachment:exportFile
-                                     withSession:selectedRows.count];
+        // get selected session list
+        NSMutableArray* selectedList = [NSMutableArray arrayWithCapacity:selectedRows.count];
+        for (NSIndexPath* path in selectedRows)
+            [selectedList addObject:[self.sessionList objectAtIndex:path.row]];
+
+        // compress folders
+        NSString* exportFile = [TIFileManager createZipArchiveWithFiles:selectedList
+                                                            inDirectory:[TIFileManager documentsDirectory]
+                                                            toDirectory:[TIFileManager cacheDirectory]];
+        
+        // send to mail
+        [self displayMailComposerSheetWithAttachment:exportFile
+                                         withSession:selectedRows.count];
+    }
 }
 
 -(void) displayMailComposerSheetWithAttachment:(NSString*)file withSession:(NSUInteger)count

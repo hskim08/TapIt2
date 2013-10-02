@@ -95,8 +95,9 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Randomize Order" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="iDO-uC-o2L">
-                                                    <rect key="frame" x="10" y="11" width="154" height="21"/>
+                                                    <rect key="frame" x="15" y="11" width="154" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <inset key="insetFor6xAndEarlier" minX="5" minY="0.0" maxX="-5" maxY="0.0"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -146,8 +147,9 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Use Audio Cue" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Oio-qj-R3v">
-                                                    <rect key="frame" x="10" y="11" width="154" height="21"/>
+                                                    <rect key="frame" x="15" y="11" width="154" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <inset key="insetFor6xAndEarlier" minX="5" minY="0.0" maxX="-5" maxY="0.0"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -174,8 +176,9 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Allow Pause" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="RkE-Q2-LwN">
-                                                    <rect key="frame" x="10" y="11" width="107" height="22"/>
+                                                    <rect key="frame" x="15" y="11" width="107" height="22"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <inset key="insetFor6xAndEarlier" minX="5" minY="0.0" maxX="-5" maxY="0.0"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -198,8 +201,9 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Allow Task Skip" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="CX6-jl-sPk">
-                                                    <rect key="frame" x="10" y="11" width="181" height="22"/>
+                                                    <rect key="frame" x="15" y="11" width="181" height="22"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <inset key="insetFor6xAndEarlier" minX="5" minY="0.0" maxX="-5" maxY="0.0"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -222,8 +226,9 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Show Prev Button" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="O3E-4q-Tb8">
-                                                    <rect key="frame" x="10" y="11" width="181" height="21"/>
+                                                    <rect key="frame" x="15" y="11" width="181" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <inset key="insetFor6xAndEarlier" minX="5" minY="0.0" maxX="-5" maxY="0.0"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -305,11 +310,11 @@
             </objects>
             <point key="canvasLocation" x="-770" y="-1506"/>
         </scene>
-        <!--Track List View Controller - Choose Audio Files-->
+        <!--Track List View Controller - Track List-->
         <scene sceneID="8tB-tF-Udi">
             <objects>
                 <tableViewController id="v4K-XK-EOx" customClass="TITrackListViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsMultipleSelection="YES" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="4ja-QZ-Fbb">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="4ja-QZ-Fbb">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -317,24 +322,14 @@
                             <rect key="frame" x="0.0" y="64" width="320" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="FEg-03-joQ">
-                                    <rect key="frame" x="20" y="7" width="100" height="30"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <state key="normal" title="Select All">
-                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                    </state>
-                                    <connections>
-                                        <action selector="selectAllPushed:" destination="v4K-XK-EOx" eventType="touchUpInside" id="Aa9-7c-bNc"/>
-                                    </connections>
-                                </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="LCD-hU-fIj">
-                                    <rect key="frame" x="204" y="7" width="100" height="30"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <state key="normal" title="Deselect All">
+                                    <rect key="frame" x="110" y="7" width="100" height="30"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                    <state key="normal" title="Edit">
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
                                     <connections>
-                                        <action selector="deselectAllPushed:" destination="v4K-XK-EOx" eventType="touchUpInside" id="o60-RF-3kw"/>
+                                        <action selector="editPushed:" destination="v4K-XK-EOx" eventType="touchUpInside" id="FUv-ez-9wW"/>
                                     </connections>
                                 </button>
                             </subviews>
@@ -364,13 +359,16 @@
                             <outlet property="delegate" destination="v4K-XK-EOx" id="eH1-fr-Hdj"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Choose Audio Files" id="DoA-Bt-gWQ">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="XUw-9l-Efh">
+                    <navigationItem key="navigationItem" title="Track List" id="DoA-Bt-gWQ">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="XUw-9l-Efh">
                             <connections>
-                                <action selector="savePushed:" destination="v4K-XK-EOx" id="iBe-Wt-Ccf"/>
+                                <segue destination="4sG-8Y-vUu" kind="push" id="Fr1-VR-bqv"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="editButton" destination="LCD-hU-fIj" id="vy9-sY-CDD"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bsB-cR-VvP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -572,7 +570,7 @@ Tap the play button to start a task. When the audio stops and you are finished t
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LIF-Nx-Njv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-179" y="-1917"/>
+            <point key="canvasLocation" x="245" y="-2657"/>
         </scene>
         <!--Post Instruction View Controller - Edit Post-Session-->
         <scene sceneID="WxZ-w4-BXZ">
@@ -619,7 +617,7 @@ Tap the play button to start a task. When the audio stops and you are finished t
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gvp-l9-eIM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="221" y="-1917"/>
+            <point key="canvasLocation" x="-191" y="-2671"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Fn7-bY-Qfh">
@@ -830,17 +828,40 @@ Tap the play button to start a task. When the audio stops and you are finished t
                             <outlet property="delegate" destination="Kgw-AI-INn" id="tgy-2x-2Ov"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Choose Cue Audio" id="3ia-o6-wco">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="QHM-gf-eP5">
-                            <connections>
-                                <action selector="savePushed:" destination="Kgw-AI-INn" id="t7c-hO-WLW"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Choose Cue Audio" id="3ia-o6-wco"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="42e-SV-myY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="221" y="-1225"/>
+            <point key="canvasLocation" x="-191" y="-1976"/>
+        </scene>
+        <!--Add Audio Table View Controller - Add Audio File-->
+        <scene sceneID="k41-If-Fen">
+            <objects>
+                <tableViewController id="4sG-8Y-vUu" customClass="TIAddAudioTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="gdB-Aa-Vuw">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="AddAudioCell" id="fvX-aH-uNV">
+                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fvX-aH-uNV" id="7f1-vK-nMJ">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="4sG-8Y-vUu" id="fOe-4L-A40"/>
+                            <outlet property="delegate" destination="4sG-8Y-vUu" id="4Uv-BV-2M2"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Add Audio File" id="vMc-B7-6TF"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Z6l-DU-WaV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="210" y="-1225"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

@@ -13,10 +13,11 @@
 
 @interface TITrackListViewController ()
 
-@property NSArray* wavList;
+@property NSMutableArray* trackList;
 
-- (void) loadSelectedFromDefaults;
-- (void) saveSelectedToDefaults;
+- (void) removeRow:(NSUInteger)row;
+
+- (void) saveTrackListToDefaults;
 
 @end
 
@@ -34,18 +35,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    self.clearsSelectionOnViewWillAppear = NO;
-    self.wavList = [TIFileManager documentsWavFiles];
- 
-    [self loadSelectedFromDefaults];
 }
 
-//- (void)didReceiveMemoryWarning
-//{
-//    [super didReceiveMemoryWarning];
-//    // Dispose of any resources that can be recreated.
-//}
+- (void) viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    self.trackList = [NSMutableArray arrayWithArray:[[NSUserDefaults standardUserDefaults] arrayForKey:kTIDefaultsTrackList]];
+    [self.tableView reloadData];
+}
 
 #pragma mark - Table view data source
 
@@ -56,7 +54,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.wavList.count;
+    return self.trackList.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -65,7 +63,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     // Configure the cell
-    cell.textLabel.text = [self.wavList objectAtIndex:indexPath.row];
+    cell.textLabel.text = [self.trackList objectAtIndex:indexPath.row];
     
     return cell;
 }
@@ -75,120 +73,130 @@
     return @"Audio Files";
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-#pragma mark - Table view delegate
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
-}
-
-#pragma mark - IBAction Selectors
-
-- (IBAction) savePushed:(UIBarButtonItem*)sender
-{
-    // save selected
-    [self saveSelectedToDefaults];
-    
-    // dismiss view
-    [self.navigationController popToRootViewControllerAnimated:YES];
-}
-
-- (IBAction)selectAllPushed:(UIBarButtonItem*)sender
-{
-    for (int i = 0; i < self.wavList.count; i++)
-        [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:i
-                                                                inSection:0]
-                                    animated:NO
-                              scrollPosition:UITableViewScrollPositionNone];
-
-}
-
-- (IBAction)deselectAllPushed:(UIBarButtonItem*)sender
-{
-    for (int i = 0; i < self.wavList.count; i++)
-        [self.tableView deselectRowAtIndexPath:[NSIndexPath indexPathForRow:i
-                                                                  inSection:0]
-                                      animated:NO];
-    
-}
-
-#pragma mark - Private Selectors
-
-- (void) loadSelectedFromDefaults
-{
-    NSArray* trackList = [[NSUserDefaults standardUserDefaults] arrayForKey:kTIDefaultsTrackList];
-    
-    for (NSString* filename in trackList) {
+        [self removeRow:indexPath.row];
         
-        NSUInteger idx = [self.wavList indexOfObject:filename];
-
-        if (idx != NSNotFound) {
-            [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:idx
-                                                                    inSection:0]
-                                        animated:NO
-                                  scrollPosition:UITableViewScrollPositionNone];
-        }
+        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     }
 }
 
-- (void) saveSelectedToDefaults
+// Override to support rearranging the table view.
+- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
 {
-    NSArray* selectedRows = [self.tableView indexPathsForSelectedRows];
-    NSMutableArray* trackList = [NSMutableArray arrayWithCapacity:selectedRows.count];
+    NSLog(@"move from %d to %d", fromIndexPath.row, toIndexPath.row);
     
-    for (NSIndexPath* path in selectedRows)
-        [trackList addObject:[self.wavList objectAtIndex:path.row]];
+    // move object
+    id item = [self.trackList objectAtIndex:fromIndexPath.row];
+    [self.trackList removeObject:item];
+    [self.trackList insertObject:item
+                         atIndex:toIndexPath.row];
     
+    // save to defaults
+    [self saveTrackListToDefaults];
+}
+
+#pragma mark - Table view delegate
+
+
+#pragma mark - IBAction Selectors
+
+- (IBAction)editPushed:(UIBarButtonItem*)sender
+{
+    self.tableView.editing = !self.tableView.isEditing;
+    
+    if (self.tableView.isEditing) {
+        
+        [self.editButton setTitle:@"Done"
+                         forState:UIControlStateNormal];
+    }
+    else {
+        
+        [self.editButton setTitle:@"Edit"
+                         forState:UIControlStateNormal];
+    }
+}
+
+//- (IBAction) savePushed:(UIBarButtonItem*)sender
+//{
+//    // save selected
+//    [self saveSelectedToDefaults];
+//    
+//    // dismiss view
+//    [self.navigationController popToRootViewControllerAnimated:YES];
+//}
+
+//- (IBAction)selectAllPushed:(UIBarButtonItem*)sender
+//{
+//    for (int i = 0; i < self.wavList.count; i++)
+//        [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:i
+//                                                                inSection:0]
+//                                    animated:NO
+//                              scrollPosition:UITableViewScrollPositionNone];
+//
+//}
+
+//- (IBAction)deselectAllPushed:(UIBarButtonItem*)sender
+//{
+//    for (int i = 0; i < self.wavList.count; i++)
+//        [self.tableView deselectRowAtIndexPath:[NSIndexPath indexPathForRow:i
+//                                                                  inSection:0]
+//                                      animated:NO];
+//    
+//}
+
+#pragma mark - Private Selectors
+
+- (void) removeRow:(NSUInteger)row
+{
+    [self.trackList removeObjectAtIndex:row];
+    
+    // save results
+    [self saveTrackListToDefaults];
+}
+
+- (void) saveTrackListToDefaults
+{
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setObject:trackList
+    [defaults setObject:self.trackList
                  forKey:kTIDefaultsTrackList];
     
     [defaults synchronize];
 }
+
+//- (void) loadSelectedFromDefaults
+//{
+//    NSArray* trackList = [[NSUserDefaults standardUserDefaults] arrayForKey:kTIDefaultsTrackList];
+//    
+//    for (NSString* filename in trackList) {
+//        
+//        NSUInteger idx = [self.wavList indexOfObject:filename];
+//
+//        if (idx != NSNotFound) {
+//            [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:idx
+//                                                                    inSection:0]
+//                                        animated:NO
+//                                  scrollPosition:UITableViewScrollPositionNone];
+//        }
+//    }
+//}
+
+//- (void) saveSelectedToDefaults
+//{
+//    NSArray* selectedRows = [self.tableView indexPathsForSelectedRows];
+//    NSMutableArray* trackList = [NSMutableArray arrayWithCapacity:selectedRows.count];
+//    
+//    for (NSIndexPath* path in selectedRows)
+//        [trackList addObject:[self.wavList objectAtIndex:path.row]];
+//    
+//    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+//    [defaults setObject:trackList
+//                 forKey:kTIDefaultsTrackList];
+//    
+//    [defaults synchronize];
+//}
 
 @end

@@ -123,7 +123,7 @@
     
     // show toolbar
     self.toolBar.hidden = NO;
-    [UIView animateWithDuration:keyboardDuration.floatValue
+    [UIView animateWithDuration:keyboardDuration.floatValue*1.5 // show late
                      animations:^{
                          CGRect frame = self.toolBar.frame;
                          frame.origin.y -= keyboardSize.height+self.toolBar.frame.size.height;
@@ -138,8 +138,7 @@
     CGSize keyboardSize = [[userInfo objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
     NSNumber* keyboardDuration = [userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey];
     
-    
-    [UIView animateWithDuration:keyboardDuration.floatValue
+    [UIView animateWithDuration:keyboardDuration.floatValue*0.9 // hide fast
                      animations:^{
                          
                          // hide toolbar

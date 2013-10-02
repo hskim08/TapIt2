@@ -10,9 +10,8 @@
 
 @interface TITrackListViewController : UITableViewController
 
-- (IBAction)savePushed:(UIBarButtonItem*)sender;
+@property IBOutlet UIButton* editButton;
 
-- (IBAction)selectAllPushed:(UIBarButtonItem*)sender;
-- (IBAction)deselectAllPushed:(UIBarButtonItem*)sender;
+- (IBAction)editPushed:(UIBarButtonItem*)sender;
 
 @end
