@@ -15,14 +15,14 @@
 - (void) registerKeyboardListeners;
 - (void) unregisterKeyboardListeners;
 
-- (void)keyboardWillShow:(NSNotification *)notification;
-- (void)keyboardWillHide:(NSNotification *)notification;
+- (void) keyboardWillShow:(NSNotification *)notification;
+- (void) keyboardWillHide:(NSNotification *)notification;
 
 @end
 
 @implementation TIPostInstructionViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (id) initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
@@ -31,7 +31,7 @@
     return self;
 }
 
-- (void)viewDidLoad
+- (void) viewDidLoad
 {
     [super viewDidLoad];
         
@@ -109,7 +109,7 @@
                                                   object:nil];
 }
 
-- (void)keyboardWillShow:(NSNotification *)notification
+- (void) keyboardWillShow:(NSNotification *)notification
 {
     // get keyboard information
     NSDictionary* userInfo = [notification userInfo];
@@ -131,7 +131,7 @@
                      }];
 }
 
-- (void)keyboardWillHide:(NSNotification *)notification
+- (void) keyboardWillHide:(NSNotification *)notification
 {
     // get keyboard information
     NSDictionary* userInfo = [notification userInfo];
