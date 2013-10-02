@@ -40,4 +40,7 @@
 + (NSString*) createZipArchiveWithFiles:(NSArray*)files inDirectory:(NSString*)directory;
 + (NSString*) createZipArchiveWithFiles:(NSArray*)files inDirectory:(NSString*)inDir toDirectory:(NSString*)outDir;
 
+// deletes directory
++ (void) deleteItemInDocuments:(NSString*)directory;
+
 @end

@@ -69,6 +69,11 @@
     return cell;
 }
 
+- (NSString*)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    return @"Audio Files";
+}
+
 #pragma mark - UITableViewDelegate Selectors
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

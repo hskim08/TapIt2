@@ -217,4 +217,24 @@
     return zipFilePath;
 }
 
++ (void) deleteItemInDocuments:(NSString*)directory
+{
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSString* dirPath = [NSString stringWithFormat:@"%@/%@", [TIFileManager documentsDirectory], directory];
+
+    // TODO: check if directory exists
+    if ([fileManager fileExistsAtPath:dirPath]) {
+     
+        NSError* error;
+        [fileManager removeItemAtPath:dirPath
+                                error:&error];
+        
+        if (error)
+            NSLog(@"Failed to remove directory: %@", error.description);
+
+    }
+    else
+        NSLog(@"Directory to delete does not exist: %@", dirPath);
+}
+
 @end
