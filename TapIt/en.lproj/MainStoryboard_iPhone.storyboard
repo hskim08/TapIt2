@@ -308,7 +308,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ymF-3N-pkl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-770" y="-1506"/>
+            <point key="canvasLocation" x="182" y="-1522"/>
         </scene>
         <!--Track List View Controller - Track List-->
         <scene sceneID="8tB-tF-Udi">
@@ -372,7 +372,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bsB-cR-VvP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-179" y="-1225"/>
+            <point key="canvasLocation" x="737" y="-1173"/>
         </scene>
         <!--Export Session View Controller - Choose Sessions-->
         <scene sceneID="wvW-ly-nyP">
@@ -459,7 +459,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DCW-k6-7Xq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-179" y="-561"/>
+            <point key="canvasLocation" x="737" y="-490"/>
         </scene>
         <!--Info View Controller-->
         <scene sceneID="uTw-nS-BM2">
@@ -520,7 +520,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bsR-FL-wyH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-770" y="-2183"/>
+            <point key="canvasLocation" x="182" y="-2199"/>
         </scene>
         <!--Pre Instruction View Controller - Edit Pre-Session-->
         <scene sceneID="zOl-Az-qhA">
@@ -570,7 +570,7 @@ Tap the play button to start a task. When the audio stops and you are finished t
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LIF-Nx-Njv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="245" y="-2657"/>
+            <point key="canvasLocation" x="1170" y="-2599"/>
         </scene>
         <!--Post Instruction View Controller - Edit Post-Session-->
         <scene sceneID="WxZ-w4-BXZ">
@@ -617,7 +617,7 @@ Tap the play button to start a task. When the audio stops and you are finished t
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gvp-l9-eIM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-191" y="-2671"/>
+            <point key="canvasLocation" x="737" y="-2599"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Fn7-bY-Qfh">
@@ -633,7 +633,7 @@ Tap the play button to start a task. When the audio stops and you are finished t
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LEg-Nt-Xrh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1224" y="-1506"/>
+            <point key="canvasLocation" x="-272" y="-1522"/>
         </scene>
         <!--Consent View Controller - Instructions-->
         <scene sceneID="5">
@@ -680,7 +680,7 @@ Tap the play button to start a task. When the audio stops and you are finished t
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-789" y="282"/>
+            <point key="canvasLocation" x="-821" y="262"/>
         </scene>
         <!--Task View Controller - Task-->
         <scene sceneID="7gC-qe-Nnn">
@@ -732,7 +732,7 @@ Tap the play button to start a task. When the audio stops and you are finished t
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bfw-3Q-eBq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-304" y="285"/>
+            <point key="canvasLocation" x="-336" y="265"/>
         </scene>
         <!--End Task View Controller - Done-->
         <scene sceneID="stB-TC-aNi">
@@ -770,7 +770,7 @@ Tap the play button to start a task. When the audio stops and you are finished t
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sRo-Q0-bPg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="182" y="285"/>
+            <point key="canvasLocation" x="150" y="265"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="5bq-JB-ScQ">
@@ -794,7 +794,7 @@ Tap the play button to start a task. When the audio stops and you are finished t
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DSh-iU-ovP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1256" y="282"/>
+            <point key="canvasLocation" x="-1288" y="262"/>
         </scene>
         <!--Cue Audio View Controller - Choose Cue Audio-->
         <scene sceneID="UfA-Oc-kf2">
@@ -832,7 +832,7 @@ Tap the play button to start a task. When the audio stops and you are finished t
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="42e-SV-myY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-191" y="-1976"/>
+            <point key="canvasLocation" x="737" y="-1904"/>
         </scene>
         <!--Add Audio Table View Controller - Add Audio File-->
         <scene sceneID="k41-If-Fen">
@@ -861,7 +861,7 @@ Tap the play button to start a task. When the audio stops and you are finished t
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z6l-DU-WaV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="210" y="-1225"/>
+            <point key="canvasLocation" x="1170" y="-1173"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
@@ -870,6 +870,6 @@ Tap the play button to start a task. When the audio stops and you are finished t
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="rDe-K9-GeC"/>
+        <segue reference="Ssy-zy-75e"/>
     </inferredMetricsTieBreakers>
 </document>

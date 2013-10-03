@@ -30,13 +30,18 @@
 		DA2F4E7A176F9EC40020E5BD /* ZipArchive.m in Sources */ = {isa = PBXBuildFile; fileRef = DA2F4E73176F9EC40020E5BD /* ZipArchive.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		DA2F4E82176FBC2C0020E5BD /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DA2F4E81176FBC2C0020E5BD /* libz.dylib */; };
 		DA2F4E84176FBED50020E5BD /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA2F4E83176FBED50020E5BD /* MessageUI.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		DA317131174DEE8A009C6AA7 /* icon57.png in Resources */ = {isa = PBXBuildFile; fileRef = DA317130174DEE8A009C6AA7 /* icon57.png */; };
-		DA317133174DEE8D009C6AA7 /* icon114.png in Resources */ = {isa = PBXBuildFile; fileRef = DA317132174DEE8D009C6AA7 /* icon114.png */; };
 		DA317137174DF5DC009C6AA7 /* example01.wav in Resources */ = {isa = PBXBuildFile; fileRef = DA317134174DF5DC009C6AA7 /* example01.wav */; };
 		DA317138174DF5DC009C6AA7 /* example02.wav in Resources */ = {isa = PBXBuildFile; fileRef = DA317135174DF5DC009C6AA7 /* example02.wav */; };
 		DA317139174DF5DC009C6AA7 /* example03.wav in Resources */ = {isa = PBXBuildFile; fileRef = DA317136174DF5DC009C6AA7 /* example03.wav */; };
 		DA31713C174DFA31009C6AA7 /* TITaskManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DA31713B174DFA31009C6AA7 /* TITaskManager.m */; };
 		DA4A25AC17576F9400E6A2ED /* TIFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DA4A25AB17576F9400E6A2ED /* TIFileManager.m */; };
+		DA6D6A8117FD1CA400081636 /* icon29.png in Resources */ = {isa = PBXBuildFile; fileRef = DA6D6A7A17FD1CA400081636 /* icon29.png */; };
+		DA6D6A8217FD1CA400081636 /* icon57.png in Resources */ = {isa = PBXBuildFile; fileRef = DA6D6A7B17FD1CA400081636 /* icon57.png */; };
+		DA6D6A8317FD1CA400081636 /* icon58.png in Resources */ = {isa = PBXBuildFile; fileRef = DA6D6A7C17FD1CA400081636 /* icon58.png */; };
+		DA6D6A8417FD1CA400081636 /* icon72.png in Resources */ = {isa = PBXBuildFile; fileRef = DA6D6A7D17FD1CA400081636 /* icon72.png */; };
+		DA6D6A8517FD1CA400081636 /* icon80.png in Resources */ = {isa = PBXBuildFile; fileRef = DA6D6A7E17FD1CA400081636 /* icon80.png */; };
+		DA6D6A8617FD1CA400081636 /* icon114.png in Resources */ = {isa = PBXBuildFile; fileRef = DA6D6A7F17FD1CA400081636 /* icon114.png */; };
+		DA6D6A8717FD1CA400081636 /* icon120.png in Resources */ = {isa = PBXBuildFile; fileRef = DA6D6A8017FD1CA400081636 /* icon120.png */; };
 		DA9B155717516B1800E8B39C /* TIAudio.mm in Sources */ = {isa = PBXBuildFile; fileRef = DA9B155617516B1800E8B39C /* TIAudio.mm */; };
 		DAC33608177107F9009407F5 /* legal.txt in Resources */ = {isa = PBXBuildFile; fileRef = DAC33607177107F9009407F5 /* legal.txt */; };
 		DAC9BF201759713E003204DF /* TICueAudioViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC9BF1F1759713E003204DF /* TICueAudioViewController.m */; };
@@ -95,8 +100,6 @@
 		DA2F4E73176F9EC40020E5BD /* ZipArchive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZipArchive.m; sourceTree = "<group>"; };
 		DA2F4E81176FBC2C0020E5BD /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		DA2F4E83176FBED50020E5BD /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
-		DA317130174DEE8A009C6AA7 /* icon57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon57.png; path = ../icon57.png; sourceTree = "<group>"; };
-		DA317132174DEE8D009C6AA7 /* icon114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon114.png; path = ../icon114.png; sourceTree = "<group>"; };
 		DA317134174DF5DC009C6AA7 /* example01.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = example01.wav; path = Trial/example01.wav; sourceTree = SOURCE_ROOT; };
 		DA317135174DF5DC009C6AA7 /* example02.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = example02.wav; path = Trial/example02.wav; sourceTree = SOURCE_ROOT; };
 		DA317136174DF5DC009C6AA7 /* example03.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = example03.wav; path = Trial/example03.wav; sourceTree = SOURCE_ROOT; };
@@ -104,6 +107,13 @@
 		DA31713B174DFA31009C6AA7 /* TITaskManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TITaskManager.m; sourceTree = "<group>"; };
 		DA4A25AA17576F9400E6A2ED /* TIFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TIFileManager.h; sourceTree = "<group>"; };
 		DA4A25AB17576F9400E6A2ED /* TIFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TIFileManager.m; sourceTree = "<group>"; };
+		DA6D6A7A17FD1CA400081636 /* icon29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon29.png; path = Graphics/icon29.png; sourceTree = SOURCE_ROOT; };
+		DA6D6A7B17FD1CA400081636 /* icon57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon57.png; path = Graphics/icon57.png; sourceTree = SOURCE_ROOT; };
+		DA6D6A7C17FD1CA400081636 /* icon58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon58.png; path = Graphics/icon58.png; sourceTree = SOURCE_ROOT; };
+		DA6D6A7D17FD1CA400081636 /* icon72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon72.png; path = Graphics/icon72.png; sourceTree = SOURCE_ROOT; };
+		DA6D6A7E17FD1CA400081636 /* icon80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon80.png; path = Graphics/icon80.png; sourceTree = SOURCE_ROOT; };
+		DA6D6A7F17FD1CA400081636 /* icon114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon114.png; path = Graphics/icon114.png; sourceTree = SOURCE_ROOT; };
+		DA6D6A8017FD1CA400081636 /* icon120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon120.png; path = Graphics/icon120.png; sourceTree = SOURCE_ROOT; };
 		DA9B155517516B1800E8B39C /* TIAudio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TIAudio.h; sourceTree = "<group>"; };
 		DA9B155617516B1800E8B39C /* TIAudio.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TIAudio.mm; sourceTree = "<group>"; };
 		DAC22B61175D472B00AA6E4E /* TIDefaults.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TIDefaults.h; sourceTree = "<group>"; };
@@ -223,8 +233,13 @@
 		DA0C0970174178770023FC61 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				DA317132174DEE8D009C6AA7 /* icon114.png */,
-				DA317130174DEE8A009C6AA7 /* icon57.png */,
+				DA6D6A7A17FD1CA400081636 /* icon29.png */,
+				DA6D6A7B17FD1CA400081636 /* icon57.png */,
+				DA6D6A7C17FD1CA400081636 /* icon58.png */,
+				DA6D6A7D17FD1CA400081636 /* icon72.png */,
+				DA6D6A7E17FD1CA400081636 /* icon80.png */,
+				DA6D6A7F17FD1CA400081636 /* icon114.png */,
+				DA6D6A8017FD1CA400081636 /* icon120.png */,
 				DA0C0962174177DA0023FC61 /* MainStoryboard_iPhone.storyboard */,
 				DA0C0965174177DA0023FC61 /* MainStoryboard_iPad.storyboard */,
 				DAC33607177107F9009407F5 /* legal.txt */,
@@ -441,19 +456,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA0C0955174177DA0023FC61 /* InfoPlist.strings in Resources */,
+				DA6D6A8517FD1CA400081636 /* icon80.png in Resources */,
 				DA0C095D174177DA0023FC61 /* Default.png in Resources */,
 				DA0C095F174177DA0023FC61 /* Default@2x.png in Resources */,
 				DA0C0961174177DA0023FC61 /* Default-568h@2x.png in Resources */,
 				DA0C0964174177DA0023FC61 /* MainStoryboard_iPhone.storyboard in Resources */,
 				DA0C0967174177DA0023FC61 /* MainStoryboard_iPad.storyboard in Resources */,
-				DA317131174DEE8A009C6AA7 /* icon57.png in Resources */,
-				DA317133174DEE8D009C6AA7 /* icon114.png in Resources */,
 				DA317137174DF5DC009C6AA7 /* example01.wav in Resources */,
+				DA6D6A8117FD1CA400081636 /* icon29.png in Resources */,
+				DA6D6A8217FD1CA400081636 /* icon57.png in Resources */,
+				DA6D6A8317FD1CA400081636 /* icon58.png in Resources */,
+				DA6D6A8617FD1CA400081636 /* icon114.png in Resources */,
 				DA317138174DF5DC009C6AA7 /* example02.wav in Resources */,
 				DA317139174DF5DC009C6AA7 /* example03.wav in Resources */,
+				DA6D6A8717FD1CA400081636 /* icon120.png in Resources */,
 				DAE92B771762B2E200A009C4 /* example_cue.wav in Resources */,
 				DA2F4E74176F9EC40020E5BD /* ChangeLogUnzip in Resources */,
 				DAC33608177107F9009407F5 /* legal.txt in Resources */,
+				DA6D6A8417FD1CA400081636 /* icon72.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
