@@ -412,6 +412,11 @@
 				CLASSPREFIX = TI;
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = "Hyung-Suk Kim";
+				TargetAttributes = {
+					DA0C0946174177D90023FC61 = {
+						DevelopmentTeam = 6WU8H7MA34;
+					};
+				};
 			};
 			buildConfigurationList = DA0C0942174177D90023FC61 /* Build configuration list for PBXProject "TapIt" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -580,6 +585,7 @@
 		DA0C096E174177DA0023FC61 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TapIt/TapIt-Prefix.pch";
 				INFOPLIST_FILE = "TapIt/TapIt-Info.plist";
@@ -593,6 +599,7 @@
 		DA0C096F174177DA0023FC61 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TapIt/TapIt-Prefix.pch";
 				INFOPLIST_FILE = "TapIt/TapIt-Info.plist";
